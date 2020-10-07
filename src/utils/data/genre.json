@@ -1,0 +1,44 @@
+{
+  "genre": [
+    {
+      "name": "POP",
+      "tag": "pop"
+    },
+    {
+      "name": "Classical",
+      "tag": "classical"
+    },
+    {
+      "name": "Jazz",
+      "tag": "jazz"
+    },
+    {
+      "name": "Country",
+      "tag": "country"
+    },
+    {
+      "name": "Electronic",
+      "tag": "electronic"
+    },
+    {
+      "name": "Hip-Hop",
+      "tag": "hiphop"
+    },
+    {
+      "name": "Indie",
+      "tag": "indie"
+    },
+    {
+      "name": "Reggae",
+      "tag": "reggae"
+    },
+    {
+      "name": "Blues",
+      "tag": "blues"
+    },
+    {
+      "name": "Reggaeton",
+      "tag": "reggaeton"
+    }
+  ]
+}
