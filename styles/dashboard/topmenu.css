@@ -1,0 +1,68 @@
+
+.top-menu {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(90.04deg, #731330 0.03%, #B74754 99.97%);
+}
+
+.top-menu ul {
+  width: 100%;
+  height: 80px;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.top-menu-item {
+  flex-direction: row
+}
+
+.top-menu-item svg {
+  width: 40px;
+  height: 40px;
+}
+
+.top-menu-item span {
+  font-size: 1.15em;
+  font-weight: 500;
+  color: #DBDBDB;
+  letter-spacing: -0.05em;
+  transition: all 0.1s ease-in;
+}
+
+.top-menu-item:hover {
+  cursor: pointer;
+}
+
+.top-menu-item:active {
+  transform: scale(0.9);
+  transition: all 0.1s ease-in;
+}
+
+.top-menu-item:hover span {
+  color: #FFEAEA;
+  transition: all 0.2s ease-in;
+}
+
+/* 
+    <div className='content-center top-menu'>
+      <ul className='content-center'>
+        <li className='content-center top-menu-item text-3'>
+          <Svg svg='All Hits'/>
+          <span>All Hits</span>
+        </li>
+        <li className='content-center top-menu-item text-3'>
+          <Svg svg='News Radio'/>
+          <span>News Radio</span>
+        </li>
+        <li className='content-center top-menu-item text-3'>
+          <Svg svg='Sports Radio'/>
+          <span>Sports Radio</span>
+        </li>
+        <li className='content-center top-menu-item text-3'>
+          <Svg svg='My Favorites'/>
+          <span>My Favorites</span>
+        </li>
+      </ul>
+    </div>
+*/
+

@@ -1,366 +1,44 @@
 {
-  "charts-and-classics": {
-    "name": "Charts and Classics",
-    "lists": [
-      {
-        "name": "Top 100",
-        "tag": "top 100"
-      }, 
-      {
-        "name": "Top 40",
-        "tag": "top 40"
-      },
-      {
-        "name": "2000s",
-        "tag": "2000s"
-      }, 
-      {
-        "name": "00s",
-        "tag": "00s"
-      }, 
-      {
-        "name": "90s",
-        "tag": "90s"
-      }, 
-      {
-        "name": "80s",
-        "tag": "80s"
-      }, 
-      {
-        "name": "70s",
-        "tag": "70s"
-      }, 
-      {
-        "name": "60s",
-        "tag": "60s"
-      }, 
-      {
-        "name": "50s",
-        "tag": "50s"
-      }
-    ]
-  },
-  "rock-radios": {
-    "name": "Rock Radios",
-    "lists": [
-      {
-        "name": "Classic Rock",
-        "tag": "classic rock"
-      }, 
-      {
-        "name": "Alternative",
-        "tag": "alternative"
-      },
-      {
-        "name": "Metal",
-        "tag": "metal"
-      },
-      {
-        "name": "Indie Rock",
-        "tag": "indie rock"
-      }, 
-      {
-        "name": "Alternative Rock",
-        "tag": "alternative rock"
-      },
-      {
-        "name": "Hard Rock",
-        "tag": "hard rock"
-      }, 
-      {
-        "name": "POP Rock",
-        "tag": "pop rock"
-      }, 
-      {
-        "name": "Heavy Metal",
-        "tag": "heavy metal"
-      },
-      {
-        "name": "Rock",
-        "tag": "rock"
-      }
-    ]
-  },
-  "christian-music": {
-    "name": "Christian Music",
-    "lists": [
-      {
-        "name": "Christian",
-        "tag": "christian"
-      },
-      {
-        "name": "Religion",
-        "tag": "religion"
-      },
-      {
-        "name": "Catholic",
-        "tag": "catholic"
-      },
-      {
-        "name": "Religious",
-        "tag": "religious"
-      },
-      {
-        "name": "Gospel",
-        "tag": "gospel"
-      }, 
-      {
-        "name": "Christmas Music",
-        "tag": "christmas music"
-      }, 
-      {
-        "name": "Christian Contemporary",
-        "tag": "christian contemporary"
-      }, 
-      {
-        "name": "Bible",
-        "tag": "bible"
-      }
-    ]
-  },
-  "chill-sounds": {
-    "name": "Chill Sounds",
-    "lists": [
-      {
-        "name": "Easy Listening",
-        "tag": "easy listening"
-      }, 
-      {
-        "name": "Lounge",
-        "tag": "lounge"
-      }, 
-      {
-        "name": "House",
-        "tag": "house"
-      }, 
-      {
-        "name": "Chillout",
-        "tag": "chillout"
-      }, 
-      {
-        "name": "Relax",
-        "tag": "relax"
-      }, 
-      {
-        "name": "Deep House",
-        "tag": "deep house"
-      }, 
-      {
-        "name": "Downtempo",
-        "tag": "downtempo"
-      }, 
-      {
-        "name": "Clubs",
-        "tag": "club"
-      }
-    ]
-  },
-  "community-stations": {
-    "name": "Community Stations",
-    "lists":[
-      {
-        "name": "Talk",
-        "tag": "talk"
-      }, 
-      {
-        "name": "Community Radio",
-        "tag": "community radio"
-      }, 
-      {
-        "name": "Public Radio",
-        "tag": "public radio"
-      }, 
-      {
-        "name": "Regional Mexican",
-        "tag": "regional mexican"
-      }, 
-      {
-        "name": "Black",
-        "tag": "black"
-      }, 
-      {
-        "name": "Local Music",
-        "tag": "local music"
-      }, 
-      {
-        "name": "Urban Contemporary",
-        "tag": "urban contemporary"
-      }, 
-      {
-        "name": "Local Radio",
-        "tag": "local radio"
-      }, 
-      {
-        "name": "Culture",
-        "tag": "culture"
-      }
-    ]
-  },
-  "dance-radios": {
-    "name": "Dance Radios",
-    "lists": [
-      {
-        "name": "Dance",
-        "tag": "dance"
-      }, 
-      {
-        "name": "Party",
-        "tag": "party"
-      }, 
-      {
-        "name": "Salsa",
-        "tag": "salsa"
-      }, 
-      {
-        "name": "Disco",
-        "tag": "disco"
-      }, {
-        "name": "Electro",
-        "tag": "electro"
-      }, 
-      {
-        "name": "Electronica",
-        "tag": "electronica"
-      }, 
-      {
-        "name": "Eclectic",
-        "tag": "eclectic"
-      }, 
-      {
-        "name": "Latin",
-        "tag": "latin"
-      }, 
-      {
-        "name": "Eurodance",
-        "tag": "eurodance"
-      }, 
-      {
-        "name": "Brazilian Music",
-        "tag": "brazilian music"
-      }, 
-      {
-        "name": "Italo Disco",
-        "tag": "italo disco"
-      }
-    ]
-  },
-  "education-stations":{
-    "name": "Education Stations",
-    "lists": [
-      {
-        "name": "University Radio",
-        "tag": "university radio"
-      }, 
-      {
-        "name": "College Radio",
-        "tag": "college radio"
-      }, 
-      {
-        "name": "Student Radio",
-        "tag": "student radio"
-      }
-    ]
-  },
-  "adult-radios": {
-    "name": "Adult Radios",
-    "lists": [
-      {
-        "name": "Adult Contemporary",
-        "tag": "adult contemporary"
-      }, 
-      {
-        "name": "Hot Adult",
-        "tag": "hot adult contemporary"
-      }, {
-        "name": "Adult alternative",
-        "tag": "adult album alternative"
-      }, 
-      {
-        "name": "Adult Hits",
-        "tag": "adult hits"
-      }, 
-      {
-        "name": "Non-Commercial",
-        "tag": "non-commercial"
-      }
-    ]
-  },
-  "international-music": {
-    "name": "International Music",
-    "lists": [
-      {
-        "name": "Indie",
-        "tag": "indie"
-      }, 
-      {
-        "name": "Greek",
-        "tag": "greek"
-      }, 
-      {
-        "name": "International",
-        "tag": "international"
-      }, 
-      {
-        "name": "World Music",
-        "tag": "world music"
-      }, 
-      {
-        "name": "Regional Mexican",
-        "tag": "regional mexican"
-      }, 
-      {
-        "name": "Latin",
-        "tag": "latin"
-      }, 
-      {
-        "name": "Spanish",
-        "tag": "spanish"
-      }, 
-      {
-        "name": "Japanese",
-        "tag": "japanese"
-      }, 
-      {
-        "name": "Italo Disco",
-        "tag": "italo disco"
-      }, 
-      {
-        "name": "Brazilian Music",
-        "tag": "brazilian music"
-      }
-    ]
-  },
-  "family": {
-    "name": "Family",
-    "lists": [
-      {
-        "name": "Children",
-        "tag": "children"
-      }, 
-      {
-        "name": "ABC",
-        "tag": "abc"
-      }, 
-      {
-        "name": "Lounge",
-        "tag": "lounge"
-      }, 
-      {
-        "name": "Kids",
-        "tag": "kids"
-      }, 
-      {
-        "name": "Relax",
-        "tag": "kids"
-      }, 
-      {
-        "name": "Christmas Music",
-        "tag": "christmas music"
-      }, 
-      {
-        "name": "Entertainment",
-        "tag": "entertainment"
-      }
-    ]
-  }
+  "categories": [
+    {
+      "name": "Charts and Classics",
+      "lists": ["top 100", "top 40", "2000s", "00s", "90s", "80s", "70s", "60s", "50s"]
+    },
+    {
+      "name": "Rock Radios",
+      "lists": ["classic rock", "alternative", "metal", "indie rock", "alternative rock", "hard rock", "pop rock", "heavy metal", "rock"]
+    }, 
+    {
+      "name": "Christian Music",
+      "lists": [ "christian", "religion", "catholic", "religious", "gospel", "christmas music", "christian contemporary", "bible" ]
+    },
+    {
+      "name": "Chill Sounds",
+      "lists": ["easy listening", "lounge", "house", "chillout", "relax", "deep house", "downtempo", "club" ]
+    },
+    {
+      "name": "Community Stations",
+      "lists":["talk", "community radio", "public radio", "regional mexican", "black", "local music", "urban contemporary", "local radio", "culture"]
+    },
+    {
+      "name": "Dance Radios",
+      "lists": ["dance", "party", "salsa", "disco", "electro", "electronica", "eclectic", "latin", "eurodance", "brazilian music", "italo disco"]
+   },
+   {
+     "name": "Education Stations",
+     "lists": ["university radio", "college radio", "student radio"]
+   }, 
+   {
+      "name": "Adult Radios",
+      "lists": ["adult contemporary", "hot adult contemporary", "adult album alternative", "adult hits", "non-commercial"]
+    },
+    {
+      "name": "International Music",
+      "lists": ["indie", "greek", "international", "world music", "regional mexican","latin", "spanish", "japanese", "italo disco", "brazilian music"]
+    },
+    {
+      "name": "Family",
+      "lists": ["children", "abc", "lounge", "kids", "kids", "christmas music", "entertainment" ]
+    }    
+  ]
 }

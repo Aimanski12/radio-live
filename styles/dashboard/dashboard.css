@@ -1,0 +1,9 @@
+
+.dashboard-container {
+  margin-left: 5px;
+  width: 987px;
+  min-height: 890px;
+  float: left;
+
+  background: rgba(190,190,190,0.2);
+}

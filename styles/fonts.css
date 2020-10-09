@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+
+.text-1 {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+}
+
+.text-2 {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
+}
+
+.text-3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+.font-1 {
+  
+}
+
+.font-2 {
+  
+}
+
+.font-3 {
+  
+}
+
+.font-4 {
+  
+}
+
+.font-5 {
+  
+}
+
+.font-6 {
+  
+}
+
+.font-7 {
+  
+}
+
+.font-8 {
+  
+}

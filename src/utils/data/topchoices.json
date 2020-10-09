@@ -1,101 +1,16 @@
 {
-  "all-hits": {
-    "name": "All Hits",
-    "lists": [
-        {
-          "name": "Top 40",
-          "tag": "top 40"
-        }, 
-        {
-          "name": "Hits",
-          "tag": "hits"
-        }, 
-        {
-          "name": "Classic Hits",
-          "tag": "classic hits"
-        }, 
-        {
-          "name": "Charts",
-          "tag": "charts"
-        }, 
-        {
-          "name": "Contemporary Hits",
-          "tag": "contemporary hits"
-        }, 
-        {
-          "name": "Adult Hits",
-          "tag": "adult hits"
-        }
-      ]
-    },
-  "news-radio": {
-    "name": "News Radio",
-    "lists": [
-        {
-          "name": "Noticias",
-          "tag": "noticias"
-        }, 
-        {
-          "name": "TV",
-          "tag": "tv"
-        }, 
-        {
-          "name": "Information",
-          "tag": "information"
-        }, 
-        {
-          "name": "News Talk",
-          "tag": "news talk"
-        }, 
-        {
-          "name": "News",
-          "tag": "news"
-        }, 
-        {
-          "name": "Local News",
-          "tag": "local news"
-        }, 
-        {
-          "name": "Talk Radio",
-          "tag": "talk radio"
-        }, 
-        {
-          "name": "Politics",
-          "tag": "politics"
-        }, 
-        {
-          "name": "Mediaset",
-          "tag": "mediaset"
-        }, 
-        {
-          "name": "BBC",
-          "tag": "bbc"
-        }, 
-        {
-          "name": "Live",
-          "tag": "live"
-        }
-      ]
-    },
-  "sports-radio": {
-    "name": "Sports Radio",
-    "lists": [
-        {
-          "name": "Live Sports",
-          "tag": "live sports"
-        }, 
-        {
-          "name": "TV",
-          "tag": "tv"
-        }, 
-        {
-          "name": "Sport",
-          "tag": "sport"
-        }, 
-        {
-          "name": "Sports News",
-          "tag": "sports news"
-        }
-      ]
+  "topMenu": [
+    {
+      "name": "All Hits",
+      "lists": ["top 40", "hits", "classic hits", "charts", "contemporary hits", "adult hits"]
+    }, 
+    {
+      "name": "News Radio",
+      "lists": ["noticias", "tv", "information", "news talk", "news", "local news", "talk radio", "politics", "mediaset", "bbc", "live"]
+    }, 
+    {
+      "name": "Sports Radio",
+      "lists": ["live sports", "tv", "sport", "sports news"]
     }
+  ]
 }
