@@ -1,3 +1,26 @@
 .top-navbar {
   display: none;
 }
+
+@media (max-width: 768px) {
+  .top-navbar {
+    height: 60px;
+    width: 100%;
+    background: #A00B39;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 668px) {
+  .top-navbar {
+    height: 55px;
+  }
+}
+
+@media (max-width: 568px) {
+  .top-navbar {
+    height: 50px;
+  }
+}

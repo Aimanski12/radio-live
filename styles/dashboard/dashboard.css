@@ -1,9 +1,22 @@
 
 .dashboard-container {
   margin-left: 5px;
-  width: 987px;
+  width: calc(77.24% - 5px);
   min-height: 890px;
   float: left;
+}
 
-  background: rgba(190,190,190,0.2);
+@media (max-width: 968px) {
+  .dashboard-container {
+    width: calc(72% - 5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    margin-left: 0;
+    width: 100%;
+    min-height: 200px;
+
+  }
 }

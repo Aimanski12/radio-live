@@ -1,13 +1,13 @@
 
 .top-menu {
   width: 100%;
-  height: 80px;
+  height: 75px;
   background: linear-gradient(90.04deg, #731330 0.03%, #B74754 99.97%);
 }
 
 .top-menu ul {
   width: 100%;
-  height: 80px;
+  height: 100%;
   flex-direction: row;
   justify-content: space-evenly;
 }
@@ -16,14 +16,12 @@
   flex-direction: row
 }
 
-.top-menu-item svg {
-  width: 40px;
-  height: 40px;
+.top-menu-item img {
+  width: 38px;
+  height: 38px;
 }
 
 .top-menu-item span {
-  font-size: 1.15em;
-  font-weight: 500;
   color: #DBDBDB;
   letter-spacing: -0.05em;
   transition: all 0.1s ease-in;
@@ -43,26 +41,29 @@
   transition: all 0.2s ease-in;
 }
 
-/* 
-    <div className='content-center top-menu'>
-      <ul className='content-center'>
-        <li className='content-center top-menu-item text-3'>
-          <Svg svg='All Hits'/>
-          <span>All Hits</span>
-        </li>
-        <li className='content-center top-menu-item text-3'>
-          <Svg svg='News Radio'/>
-          <span>News Radio</span>
-        </li>
-        <li className='content-center top-menu-item text-3'>
-          <Svg svg='Sports Radio'/>
-          <span>Sports Radio</span>
-        </li>
-        <li className='content-center top-menu-item text-3'>
-          <Svg svg='My Favorites'/>
-          <span>My Favorites</span>
-        </li>
-      </ul>
-    </div>
-*/
 
+@media (max-width: 1068px) {
+  .top-menu {
+    height: 70px;
+  }
+  .top-menu-item img {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 968px) {
+  .top-menu {
+    height: 60px;
+  }
+  .top-menu-item img {
+    width: 31px;
+    height: 31px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-menu {
+    display: none;
+  }
+}

@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {Fragment} from 'react'
+import RightMenu from './RightMenu/RightMenu'
+import LeftMenu from './LeftMenu/LeftMenu'
+import Logo from './TopMenu/Menu'
 
 function TopNavBar() {
   return (
-    <div className='top-navbar'>
-      Top Nav Bar
-    </div>
+    <Fragment>
+      <Logo />
+      <LeftMenu />
+      <RightMenu />
+    </Fragment>
   )
 }
 

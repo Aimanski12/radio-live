@@ -1,25 +1,25 @@
-import React from 'react'
-import Svg from '../../Svg/Svg'
-
+import React, {useContext} from 'react'
+import {RadioAppData} from '../../../utils/contextapi/context'
+  
 function TopMenu() {
+  const {radiodata} = useContext(RadioAppData)
+
+  const topMenu = radiodata.isSet ? radiodata.data.topMenu.map((cat, i) => {
+    return (
+      <li className='content-center top-menu-item text-3' key={i}>
+        <img src="/images/All Hits.svg" alt=""/>
+        <span className='font-5'>{cat.name}</span>
+      </li>
+    )
+  }) : null
+
   return (
     <div className='top-menu'>
       <ul className='content-center'>
+        {topMenu}
         <li className='content-center top-menu-item text-3'>
-          <Svg svg='All Hits'/>
-          <span>All Hits</span>
-        </li>
-        <li className='content-center top-menu-item text-3'>
-          <Svg svg='News Radio'/>
-          <span>News Radio</span>
-        </li>
-        <li className='content-center top-menu-item text-3'>
-          <Svg svg='Sports Radio'/>
-          <span>Sports Radio</span>
-        </li>
-        <li className='content-center top-menu-item text-3'>
-          <Svg svg='My Favorites'/>
-          <span>My Favorites</span>
+          <img src="/images/My Favorites.svg" alt=""/>
+          <span className='font-5'>My Favorites</span>
         </li>
       </ul>
     </div>

@@ -1,4 +1,14 @@
 
+// function to sort the data according to the data needed
+export function sortData(jsonData, data, cont) {
+  return jsonData.map(a => {
+    return {
+      name: a.name,
+      lists: cont ? sortCont(a.lists, data) : sortCat(a.lists, data)
+    }
+  })
+}
+
 
 // this function will sort the category 
 // and will set the text to capitalize the first letter

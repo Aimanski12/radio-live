@@ -19,35 +19,248 @@
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
-
 .font-1 {
-  
+  font-size: 1.25em;  
+  font-weight: 600;
 }
-
 .font-2 {
-  
+  font-size: 1.2em;
+  font-weight: 500;
 }
-
 .font-3 {
-  
+  font-size: 1.15em;
+  font-weight: 500;
 }
-
 .font-4 {
-  
+  font-size: 1.1em;
+  font-weight: 600;
 }
-
 .font-5 {
-  
+  font-size: 1.05em;
 }
-
 .font-6 {
-  
+  font-size: 1em;
 }
-
 .font-7 {
-  
+  font-size: .9em;
+}
+.font-8 {
+  font-size: 0.8em;
 }
 
-.font-8 {
-  
+
+@media(max-width: 1168px){
+  .font-1 {
+    font-size: 1.23em;
+  }
+  .font-2 {
+    font-size: 1.18em;
+  }
+  .font-3 {
+    font-size: 1.13em;
+  }
+  .font-4 {
+    font-size: 1.08em;
+  }
+  .font-5 {
+    font-size: 1.03em;
+  }
+  .font-6 {
+    font-size: .98em;
+  }
+  .font-7 {
+    font-size: .88em;
+  }
+  .font-8 {
+    font-size: .78em;
+  }
+}
+
+@media(max-width: 1068px){
+  .font-1 {
+    font-size: 1.22em;
+  }
+  .font-2 {
+    font-size: 1.16em;
+  }
+  .font-3 {
+    font-size: 1.11em;
+  }
+  .font-4 {
+    font-size: 1.06em;
+  }
+  .font-5 {
+    font-size: 1.01em;
+  }
+  .font-6 {
+    font-size: .96em;
+  }
+  .font-7 {
+    font-size: .86em;
+  }
+  .font-8 {
+    font-size: .76em;
+  }
+}
+
+@media(max-width: 968px){
+  .font-1 {
+    font-size: 1.21em;
+  }
+  .font-2 {
+    font-size: 1.15em;
+  }
+  .font-3 {
+    font-size: 1.09em;
+  }
+  .font-4 {
+    font-size: 1.05em;
+  }
+  .font-5 {
+    font-size: 1em;
+  }
+  .font-6 {
+    font-size: .95em;
+  }
+  .font-7 {
+    font-size: .85em;
+  }
+  .font-8 {
+    font-size: .75em;
+  }
+}
+
+@media(max-width: 868px){
+  .font-1 {
+    font-size: 1.2em;
+  }
+  .font-2 {
+    font-size: 1.13em;
+  }
+  .font-3 {
+    font-size: 1.07em;
+  }
+  .font-4 {
+    font-size: 1.03em;
+  }
+  .font-5 {
+    font-size: .98em;
+  }
+  .font-6 {
+    font-size: .93em;
+  }
+  .font-7 {
+    font-size: .83em;
+  }
+  .font-8 {
+    font-size: .73em;
+  }
+}
+
+@media(max-width: 768px){
+  .font-1 {
+    font-size: 1.18em;
+  }
+  .font-2 {
+    font-size: 1.12em;
+  }
+  .font-3 {
+    font-size: 1.05em;
+  }
+  .font-4 {
+    font-size: 1.01em;
+  }
+  .font-5 {
+    font-size: .96em;
+  }
+  .font-6 {
+    font-size: .91em;
+  }
+  .font-7 {
+    font-size: .81em;
+  }
+  .font-8 {
+    font-size: .71em;
+  }
+}
+
+@media(max-width: 668px){
+  .font-1 {
+    font-size: 1.17em;
+  }
+  .font-2 {
+    font-size: 1.1em;
+  }
+  .font-3 {
+    font-size: 1.03em;
+  }
+  .font-4 {
+    font-size: 1em;
+  }
+  .font-5 {
+    font-size: .95em;
+  }
+  .font-6 {
+    font-size: .9em;
+  }
+  .font-7 {
+    font-size: .8em;
+  }
+  .font-8 {
+    font-size: .7em;
+  }
+}
+
+@media(max-width: 568px){
+  .font-1 {
+    font-size: 1.16em;
+  }
+  .font-2 {
+    font-size: 1.08em;
+  }
+  .font-3 {
+    font-size: 1.01em;
+  }
+  .font-4 {
+    font-size: .98em;
+  }
+  .font-5 {
+    font-size: .93em;
+  }
+  .font-6 {
+    font-size: .88em;
+  }
+  .font-7 {
+    font-size: .78em;
+  }
+  .font-8 {
+    font-size: .68em;
+  }
+}
+
+@media(max-width: 468px){
+  .font-1 {
+    font-size: 1.15em;
+  }
+  .font-2 {
+    font-size: 1.07em;
+  }
+  .font-3 {
+    font-size: .99em;
+  }
+  .font-4 {
+    font-size: .97em;
+  }
+  .font-5 {
+    font-size: .92em;
+  }
+  .font-6 {
+    font-size: .87em;
+  }
+  .font-7 {
+    font-size: .77em;
+  }
+  .font-8 {
+    font-size: .67em;
+  }
 }

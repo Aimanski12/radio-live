@@ -90,15 +90,6 @@
     "name": "CNR-1 中国之声"
   },
   {
-    "favicon": "http://www.antena1.com.br/app/view/default/img/A1_Logo_branco.png",
-    "homepage": "http://antena1.com.br",
-    "country": "Brazil",
-    "state": "São Paulo",
-    "url": "http://antena1.newradio.it/stream?ext=.mp3",
-    "url_resolved": "http://antena1.newradio.it/stream?ext=.mp3",
-    "name": "94.7 Antena 1"
-  },
-  {
     "favicon": "https://listen.moe/public/images/icons/apple-touch-icon-kpop.png",
     "homepage": "https://listen.moe/kpop",
     "country": "South Korea",

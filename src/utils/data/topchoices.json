@@ -1,7 +1,7 @@
 {
   "topMenu": [
     {
-      "name": "All Hits",
+      "name": "Hit Radio",
       "lists": ["top 40", "hits", "classic hits", "charts", "contemporary hits", "adult hits"]
     }, 
     {

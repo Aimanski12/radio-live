@@ -4,3 +4,59 @@
   height: 296px;
   background: radial-gradient(50% 50% at 50% 50%, rgba(180, 87, 119, 0.86) 0%, rgba(169, 77, 108, 0.86) 53.12%, rgba(124, 36, 66, 0.86) 100%);
 }
+
+@media (max-width: 1168px) {
+  .logo {
+    height: 246px;
+
+    width: 100%;
+  }
+
+  .logo a img {
+    width: 150px;
+    height: auto;
+
+  }
+}
+
+@media (max-width: 1068px) {
+  .logo {
+    height: 226px;
+    
+    width: 100%;
+  }
+
+  .logo a img {
+    width: 130px;
+    
+    height: auto;
+  }
+}
+
+@media (max-width: 968px) {
+  .logo {
+    height: 246px;
+
+    width: 100%;
+  }
+
+  .logo a img {
+    width: 140px;
+
+    height: auto;
+  }
+}
+
+@media (max-width: 868px) {
+  .logo {
+    height: 226px;
+
+    width: 100%;
+  }
+
+  .logo a img {
+    width: 130px;
+
+    height: auto;
+  }
+}

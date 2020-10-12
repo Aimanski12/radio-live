@@ -17,10 +17,15 @@ body, .main-container {
 }
 
 .main-wrapper {
-  width: 1296px;
-  padding: 5px 2px;
+  width: 1300px;
+  padding: 5px 0;
   min-height: 890px;
   background: #DE3D4F;
+}
+
+.content-wrapper {
+  width: calc(100% - 8px);
+  min-height: 890px;
 }
 
 @media (max-width: 1310px){
@@ -29,10 +34,13 @@ body, .main-container {
   }
 }
 
-.content-wrapper {
-  width: calc(100% - 8px);
-  min-height: 890px;
+@media (max-width: 768px) {
+  .main-wrapper, .content-wrapper {
+    padding-top: 0;
+    min-height: 200px;
+  }
 }
+
 
 
 

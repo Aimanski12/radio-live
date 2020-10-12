@@ -1,106 +1,51 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {RadioAppData} from '../../utils/contextapi/context'
+import {getTotal, formtNum} from '../../utils/common/helpers'
 import Logo from './components/Logo'
-import Svg from '../Svg/Svg'
 
 function SideBar() {
+  const {radiodata} = useContext(RadioAppData)
+  
+  const continent = radiodata.isSet ? radiodata.data.continents.map((conts, i) => {
+    return (
+      <li className='content-center menu-item text-3' key={i}>
+        <span className='menu-name font-5'>{conts.name}</span>
+        <span className='menu-station font-8'>{getTotal(conts.lists)}</span>
+      </li>
+    )
+  }) : null
+
+  const genre = radiodata.isSet ? radiodata.data.genre[0].lists.map((g, i) => {
+    return (
+      <li className='content-center menu-item text-3' key={i}>
+        <span className='content-center menu-name font-5'>
+          <img src={`/images/${g.name}.svg`} alt=""/>{g.name}</span>
+        <span className='menu-station font-8'>{formtNum(g.stationcount)}</span>
+      </li>
+    )
+  }) : null
+
   return (
     <div className='sidebar'>
       <Logo />
 
       <div className="sidebar-menu">
         <div className='content-center menu-header text-3'>
-          <Svg svg='Globe'/>
-          <span>Seach by Continent</span>
+          <img src="/images/Globe.svg" alt=""/>
+          <span className='font-2'>Seach by Continent</span>
         </div>
         <ul className='menu-items'>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name'>Africa</span>
-            <span className='menu-station'>3,258</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name'>Asia</span>
-            <span className='menu-station'>3,258</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name'>Australia</span>
-            <span className='menu-station'>258</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name'>Europe</span>
-            <span className='menu-station'>2,987</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name'>North America</span>
-            <span className='menu-station'>3,207</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name'>South America</span>
-            <span className='menu-station'>858</span>
-          </li>
+          {continent}
         </ul>
       </div>
 
-
       <div className="sidebar-menu">
         <div className='content-center menu-header text-3'>
-          <Svg svg='Genre'/>
-          <span>Seach by Genre</span>
+          <img src="/images/Genre.svg" alt=""/>
+          <span className='font-2'>Seach by Genre</span>
         </div>
         <ul className='menu-items'>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Pop'/> Pop
-            </span>
-            <span className='menu-station'>2,168</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Classical'/>Classical
-            </span>
-            <span className='menu-station'>889</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Jazz'/>Jazz
-            </span>
-            <span className='menu-station'>570</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Country'/>Country
-            </span>
-            <span className='menu-station'>441</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Electronic'/>Electronic
-            </span>
-            <span className='menu-station'>441</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Hiphop'/>Hiphop
-            </span>
-            <span className='menu-station'>284</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Indie'/>Indie
-            </span>
-            <span className='menu-station'>245</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Reggae'/>Reggae
-            </span>
-            <span className='menu-station'>156</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='content-center menu-name'>
-              <Svg svg='Blues'/>Blues
-            </span>
-            <span className='menu-station'>149</span>
-          </li>
+          {genre}
         </ul>
       </div>
 

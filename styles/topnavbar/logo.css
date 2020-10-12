@@ -1,0 +1,135 @@
+.menu-burger {
+  margin-left: 20px;
+  transition: all 0.1s ease-in; 
+}
+
+.menu-burger:hover, .menu-lens:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.1s ease-in;
+}
+
+.menu-lens {
+  transition: all 0.1s ease-in;
+  margin-right: 20px;
+}
+
+.menu-burger:active, .menu-lens:active {
+  transform: scale(1.2);
+  transition: all 0.1s ease-in;
+}
+
+.small-logo img{
+  width: 170px
+}
+
+.small-logo img:hover {
+  cursor: pointer;
+}
+
+.right-menu {
+  display: none;
+  right: -300px;
+}
+
+.left-menu{
+  display: none;
+  left: -300px;
+}
+
+@media (max-width: 768px){
+  /* left btn css */
+  .left-menu .close-btn, .right-menu .close-btn {
+    align-items: flex-end;
+    width: 100%;
+    height: 30px;
+  }
+  .left-menu .close-btn img, .right-menu .close-btn img{
+    width: 16px;
+    height: 16px;
+    margin-right: 15px;
+    transition: all 0.15s ease-in;
+  }
+  .left-menu .close-btn img:hover, .right-menu .close-btn img:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  .left-menu .close-btn img:active, .right-menu .close-btn img:active {
+    transform: scale(1.4);
+    transition: all 0.15s ease-in;
+  }
+  .left-menu {
+    padding: 20px 5px 30px 5px;
+    width: 290px;
+    height: 95vh;
+    position: fixed;
+    top: 0px;
+    left: -300px;
+    background: rgba(196, 83, 96, 0.9);
+    z-index: 300;
+    overflow: auto;
+    transition: all 0.2s ease-in;
+    display: block;
+  }
+  .show-leftmenu {
+    left: 0;
+    transition: all 0.2s ease-in;
+  }
+  /* left btn css ends */
+
+  /* right btn css */
+  .right-menu {
+    width: 290px;
+    height: 95vh;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    padding: 20px 5px 30px 5px;
+    z-index: 300;
+    display: block;
+    overflow: auto;
+    background: rgba(196, 83, 96, 0.9);
+    transition: all 0.2s ease-in;
+  }
+  .show-rightmenu {
+    right: 0px;
+    transition: all 0.2s ease-in;
+  }
+  .right-menu .close-btn {
+    align-items: flex-start;
+  }
+  .right-menu .close-btn img{
+    margin-left: 15px;
+  }
+}
+
+
+@media (max-width: 568px) {
+  .small-logo img {
+    width: 160px
+  }
+  .menu-burger {
+    margin-left: 15px;
+  }
+  .menu-lens {
+    margin-right: 15px;
+  }
+  .left-menu .close-btn img {
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 468px) {
+  .small-logo img {
+    width: 150px
+  }
+  .menu-burger {
+    margin-left: 10px;
+  }
+  .menu-burger img, .menu-lens img{
+    width: 22px;
+  }
+  .menu-lens {
+    margin-right: 10px;
+  }
+}
