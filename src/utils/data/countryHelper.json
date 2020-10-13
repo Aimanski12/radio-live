@@ -1,0 +1,68 @@
+{
+  "country": [
+    {
+      "name": "Tanzania",
+      "code": "TZ"
+    },
+    {
+      "name": "Iran",
+      "code": "IR"
+    },
+    {
+      "name": "North Korea",
+      "code": "KP"
+    },
+    {
+      "name": "Palestine",
+      "code": "PS"
+    },
+    {
+      "name": "South Korea",
+      "code": "KR"
+    },
+    {
+      "name": "Syria",
+      "code": "SY"
+    },
+    {
+      "name": "Taiwan",
+      "code": "TW"
+    },
+    {
+      "name": "Vietnam",
+      "code": "VN"
+    },
+    {
+      "name": "Czech Republic",
+      "code": "CZ"
+    },
+    {
+      "name": "Moldova",
+      "code": "MD"
+    },
+    {
+      "name": "Russia",
+      "code": "RU"
+    },
+    {
+      "name": "United Kingdom",
+      "code": "GB"
+    },
+    {
+      "name": "Vatican City State",
+      "code": "VA"
+    },
+    {
+      "name": "Antigua & Barbuda",
+      "code": "AG"
+    },
+    {
+      "name": "Bolivia",
+      "code": "BO"
+    },
+    {
+      "name": "Venezuela",
+      "code": "VE"
+    }
+  ]
+}

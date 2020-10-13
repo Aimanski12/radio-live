@@ -7,7 +7,7 @@ function TopMenu() {
   const topMenu = radiodata.isSet ? radiodata.data.topMenu.map((cat, i) => {
     return (
       <li className='content-center top-menu-item text-3' key={i}>
-        <img src="/images/All Hits.svg" alt=""/>
+        <img src={`/images/${cat.name}.svg`} alt=""/>
         <span className='font-5'>{cat.name}</span>
       </li>
     )

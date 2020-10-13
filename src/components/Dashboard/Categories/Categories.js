@@ -5,7 +5,6 @@ import {RadioAppData} from '../../../utils/contextapi/context'
 
 function Categories() {
   const {radiodata} = useContext(RadioAppData)
-  console.log(radiodata)
 
   const categories = radiodata.isSet ? radiodata.data.categories.map((cat, i) => {
     return (

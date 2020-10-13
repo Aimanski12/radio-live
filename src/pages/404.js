@@ -11,16 +11,19 @@ import {getData} from '../utils/apis/api'
 import stations from '../utils/data/selected.json'
 
 
-export default function Home({data}) {
+export default function NotFound() {
   const {radiodata, setradiodata} = useContext(RadioAppData)
   if(!radiodata.isSet) {
-    setradiodata(data)
+    (async function () {
+      let data = await getData('home')
+      setradiodata(data)
+    })() 
   }
 
   return (
     <div className='content-center main-container'>
       <Head>
-        <title>Radio Live | Home Page</title>
+        <title>Radio Live | Not Found</title>
         <link rel="icon" href="/images/logo.ico" />
       </Head>
 
@@ -28,26 +31,18 @@ export default function Home({data}) {
         <TopNavBar />
         <div className="content-wrapper">
           <SideBar/>
-          
           <div className='dashboard-container'>
             <TopMenu />
             <FeaturedRadio 
-              textHeader='Featured Radios'
-              stations={stations}/>
+              textHeader=''
+              stations={false}/>
             <Categories />
           </div>
         </div>
         <Footer />
       </main>
-       
     </div>
   )
 }
-
-Home.getInitialProps = async () => {
-  let data = await getData('home')
-  return { data }
-}
-
 
 

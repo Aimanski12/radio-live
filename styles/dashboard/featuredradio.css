@@ -58,12 +58,15 @@
 .radio-name a {
   text-decoration: none;
   padding-left: 5px
-  
 }
 
 .radio-name a h2 {
   letter-spacing: -0.04em;
   color: #00DBE9;
+  width: 230px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .radio-name a h2:hover {
@@ -138,9 +141,18 @@
   transition: all 0.1s ease-in;
 }
 
+@media (max-width: 1268px) {
+  .radio-name a h2 {
+    width: 210px;
+  }
+}
+
 @media (max-width: 1168px) {
   .featured-radio {
     min-height: 720px;
+  }
+  .radio-name a h2 {
+    width: 180px;
   }
 }
 
@@ -164,6 +176,9 @@
     width: 32px;
     height: 32px;
   }
+  .radio-name a h2 {
+    width: 170px;
+  }
 }
 
 @media (max-width: 968px) {
@@ -173,11 +188,17 @@
   .radio-item {
     width: calc(50% - 6px);
   }
+  .radio-name a h2 {
+    width: 220px;
+  }
 }
 
 @media (max-width: 868px) {
   .featured-radio {
     min-height: 670px;
+  }
+  .radio-name a h2 {
+    width: 190px;
   }
 }
 
@@ -188,10 +209,27 @@
   .radio-wrapper {
     min-height: 100px;
   }
+  .radio-name a h2 {
+    width: 240px;
+  }
 }
 
+@media (max-width: 668px) {
+  .radio-name a h2 {
+    width: 200px;
+  }
+}
+
+@media (max-width: 568px) {
+  .radio-name a h2 {
+    width: 165px;
+  }
+}
 @media (max-width: 500px) {
   .radio-item {
     width: calc(100% - 6px);
+  }
+  .radio-name a h2 {
+    width: 225px;
   }
 }

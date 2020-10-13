@@ -71,6 +71,10 @@
   letter-spacing: -0.04em;
   color: #00DBE9;
   text-decoration: none;
+  width: 230px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .country-stations {
@@ -88,9 +92,18 @@
   padding-right: 15px;
 }
 
+@media (max-width: 1268px) {
+  .country-name h2 {
+    width: 210px;
+  }
+}
+
 @media (max-width: 1168px) {
   .country-wrapper {
     min-height: 720px;
+  }
+  .country-name h2 {
+    width: 180px;
   }
 }
 
@@ -104,6 +117,9 @@
   .country-name {
     padding-left: 0px;
   }
+  .country-name h2 {
+    width: 170px;
+  }
 }
 
 @media (max-width: 968px) {
@@ -116,11 +132,17 @@
   .country-img-wrapper {
     width: 60px;
   }
+  .country-name h2 {
+    width: 220px;
+  }
 }
 
 @media (max-width: 868px) {
   .country-wrapper {
     min-height: 670px;
+  }
+  .country-name h2 {
+    width: 190px;
   }
 }
 
@@ -131,10 +153,28 @@
   .country-img-wrapper {
     width: 60px;
   }
+  .country-name h2 {
+    width: 240px;
+  }
+}
+
+@media (max-width: 668px) {
+  .country-name h2 {
+    width: 200px;
+  }
+}
+
+@media (max-width: 568px) {
+  .country-name h2 {
+    width: 165px;
+  }
 }
 
 @media (max-width: 500px) {
   .country-item {
     width: calc(100% - 6px);
+  }
+  .country-name h2 {
+    width: 225px;
   }
 }

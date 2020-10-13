@@ -1,17 +1,25 @@
 import React, {useContext} from 'react'
 import {RadioAppData} from '../../utils/contextapi/context'
-import {getTotal, formtNum} from '../../utils/common/helpers'
+import {getTotal, formtNum, urlFormatTxt} from '../../utils/common/helpers'
 import Logo from './components/Logo'
+import Link from 'next/link'
 
 function SideBar() {
   const {radiodata} = useContext(RadioAppData)
   
+
   const continent = radiodata.isSet ? radiodata.data.continents.map((conts, i) => {
     return (
-      <li className='content-center menu-item text-3' key={i}>
-        <span className='menu-name font-5'>{conts.name}</span>
-        <span className='menu-station font-8'>{getTotal(conts.lists)}</span>
-      </li>
+      <Link key={i}
+        href='/continents/[countries]' 
+        as={`/continents/${urlFormatTxt(conts.name)}`}>
+        <a>
+          <li className='content-center menu-item text-3'>
+            <span className='menu-name font-5'>{conts.name}</span>
+            <span className='menu-station font-8'>{getTotal(conts.lists)}</span>
+          </li>
+        </a>
+      </Link>
     )
   }) : null
 

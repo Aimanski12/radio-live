@@ -60,6 +60,11 @@
   letter-spacing: -0.03em;
 }
 
+.menu-items a {
+  text-decoration: none;
+}
+
+
 .menu-name img{
   margin-right: 3px;
   height: 30px;

@@ -1,7 +1,29 @@
-import React, {Fragment} from 'react'
-import {showMenu} from '../../../utils/common/helpers'
+import React, {useContext} from 'react'
+import {RadioAppData} from '../../../utils/contextapi/context'
+import {showMenu, getTotal, formtNum} from '../../../utils/common/helpers'
 
 function Genre() {
+  const {radiodata} = useContext(RadioAppData)
+
+    const continent = radiodata.isSet ? radiodata.data.continents.map((conts, i) => {
+    return (
+      <li className='content-center menu-item text-3' key={i}>
+        <span className='menu-name font-5'>{conts.name}</span>
+        <span className='menu-station font-8'>{getTotal(conts.lists)}</span>
+      </li>
+    )
+  }) : null
+
+  const genre = radiodata.isSet ? radiodata.data.genre[0].lists.map((g, i) => {
+    return (
+      <li className='content-center menu-item text-3' key={i}>
+        <span className='content-center menu-name font-5'>
+          <img src={`/images/${g.name}.svg`} alt=""/>{g.name}</span>
+        <span className='menu-station font-8'>{formtNum(g.stationcount)}</span>
+      </li>
+    )
+  }) : null
+
   return (
     <div className="left-menu">
       <div className="content-center close-btn">
@@ -15,30 +37,7 @@ function Genre() {
           <span className='font-2'>Seach by Continent</span>
         </div>
         <ul className='menu-items'>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name font-5'>Africa</span>
-            <span className='menu-station font-8'>3,258</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name font-5'>Asia</span>
-            <span className='menu-station font-8'>3,258</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name font-5'>Australia</span>
-            <span className='menu-station font-8'>258</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name font-5'>Europe</span>
-            <span className='menu-station font-8'>2,987</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name font-5'>North America</span>
-            <span className='menu-station font-8'>3,207</span>
-          </li>
-          <li className='content-center menu-item text-3'>
-            <span className='menu-name font-5'>South America</span>
-            <span className='menu-station font-8'>858</span>
-          </li>
+          {continent}
         </ul>
       </div>
 
@@ -50,7 +49,8 @@ function Genre() {
           <span className='font-2'>Seach by Genre</span>
         </div>
         <ul className='menu-items'>
-          <li className='content-center menu-item text-3'>
+          {genre}
+          {/* <li className='content-center menu-item text-3'>
             <span className='content-center menu-name font-5'>
               <img src="/images/Pop.svg" alt=""/>
               Pop
@@ -112,7 +112,7 @@ function Genre() {
               Blues
             </span>
             <span className='menu-station font-8'>149</span>
-          </li>
+          </li> */}
         </ul>
       </div>
 

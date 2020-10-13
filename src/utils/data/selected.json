@@ -81,22 +81,22 @@
     "name": "Ancient FM"
   },
   { 
-    "favicon": "http://www.cnr.cn//favicon.ico",
-    "homepage": "http://www.cnr.cn/",
+    "favicon": "https://tingfm.com/favicon.ico",
+    "homepage": "https://tingfm.com/radio/976",
     "country": "China",
-    "state": "China",
-    "url": "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8",
-    "url_resolved": "http://ngcdn001.cnr.cn/live/zgzs/index.m3u8",
-    "name": "CNR-1 中国之声"
+    "state": "",
+    "url": "https://lhttp.qingting.fm/live/15318146/64k.mp3",
+    "url_resolved": "https://lhttp.qingting.fm/live/15318146/64k.mp3",
+    "name": "90.7mixfm"
   },
   {
-    "favicon": "https://listen.moe/public/images/icons/apple-touch-icon-kpop.png",
-    "homepage": "https://listen.moe/kpop",
+    "favicon": "http://img.cbs.co.kr/cbs/sns/default.png",
+    "homepage": "http://www.cbs.co.kr/",
     "country": "South Korea",
-    "state": "South Korea",
-    "url": "https://listen.moe/kpop/stream",
-    "url_resolved": "https://listen.moe/kpop/stream",
-    "name": "Listen.moe Kpop"
+    "state": "Seoul",
+    "url": "http://aac.cbs.co.kr/cbs939/_definst_/cbs939.stream/playlist.m3u8",
+    "url_resolved": "http://aac.cbs.co.kr/cbs939/_definst_/cbs939.stream/playlist.m3u8",
+    "name": "cbs music"
   },
   {
     "favicon": "https://www.bluradio.com/images/logo.png",
@@ -108,13 +108,13 @@
     "name": "Blu Radio"
   },
   {
-    "favicon": "http://febc.ph/wp-content/themes/febc/public/css/images/s-98-7.png",
-    "homepage": "http://febc.ph/",
+    "favicon": "http://dzas.febc.ph/wp-content/themes/dzas_twentysixteen/public/css/images/dzas-logo-glow.png",
+    "homepage": "http://dzas.febc.ph/",
     "country": "Philippines",
-    "state": "Manila",
-    "url": "http://icecast.eradioportal.com:8000/febc_dzfe",
-    "url_resolved": "http://icecast.eradioportal.com:8000/febc_dzfe",
-    "name": "98.7 The Master's Touch"
+    "state": "",
+    "url": "http://icecast.eradioportal.com:8000/febc_dzas",
+    "url_resolved": "http://icecast.eradioportal.com:8000/febc_dzas",
+    "name": "702 DZAS"
   },
   {
     "favicon": "https://static-media.streema.com/media/object-images/08f43b6b9b5d89ea4d3f0e929a602f36.jpeg",

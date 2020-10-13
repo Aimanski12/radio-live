@@ -17,10 +17,11 @@ export const fetchData = async (url) => {
 
 
 // const fetchDa = () => {
-//   axios('https://fr1.api.radio-browser.info/json/stations/bytagexact/classical')
+//   // axios('https://fr1.api.radio-browser.info/json/stations/bytagexact/classical')
 
 //     // axios('https://fr1.api.radio-browser.info/json/tags')
 //     // axios('https://fr1.api.radio-browser.info/json/countries')
+//   axios.get('http://fr1.api.radio-browser.info/json/stations/bycountry/china')
 //     .then(res => {
 //       // let data = JSON.stringify(res.data)
 //       let data = res.data
@@ -61,7 +62,7 @@ export const fetchData = async (url) => {
 //         return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
 //       })
 
-//       // console.log(samp)
+//       console.log(samp)
 //       // console.log(JSON.stringify(samp))
 //     })
 //     .catch(err => {
