@@ -1,28 +1,29 @@
 import React from 'react'
+import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 import Link from 'next/link'
+import {useRouter} from 'next/router'
 
-
-function Countries() {
+function Countries(props) {
+  const router = useRouter()
+  const category = router.query.category
 
   function setCountries() {
-    let a = []
-    for (let x=0; x<15; x++){4
-      a.push(x)
-    }
-    return a.map((b, i) => {
+    return props.data.lists.map((b, i) => {
       return (
-        <Link href='/' key={i}>
+        <Link key={i}
+          href='/categories/[category]/[slug]'
+          as={`/categories/${urlFormatTxt(category)}/${urlFormatTxt(b.name)}`}>
           <a>
             <div className="country-item">
               <div className="country-item-wrapper">
                 <div className="content-center country-img-wrapper">
-                  <img src="/images/radio.svg" alt=""/>
+                  <img src={`/images/${props.data.name}.svg`} alt=""/>
                 </div>
                 <div className="content-center country-name">
-                  <h2 className='text-2 font-1'>Top 100</h2>
+                  <h2 className='text-2 font-1'>{b.name}</h2>
                   <div className='content-center country-stations'>
                     <span className='total-station text-2 font-7'>Stations</span>
-                    <span className='text-2 totals font-4'>45</span>
+                    <span className='text-2 totals font-4'>{b.stationcount}</span>
                   </div>
                 </div>
               </div>
@@ -36,7 +37,11 @@ function Countries() {
   return (
     <div className="country-wrapper">
       <div className='content-center menu-header text-3'>
-        <span className='font-2'>Europe</span>
+        <span className='font-2'>{props.data.name}</span>
+        <span>
+          <i className='font-2 totalStations'>
+            {getTotal(props.data.lists)} Stations</i>
+        </span>
       </div>
       <div className="country-list-wrapper">
         {setCountries()}
@@ -47,3 +52,4 @@ function Countries() {
 
 export default Countries
 
+ 

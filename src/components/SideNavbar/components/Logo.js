@@ -4,7 +4,7 @@ function Logo() {
   return (
     <div className="content-center logo">
       <a href="/">
-        <img src="/images/logo-big.png" alt=""/>
+        <img src="/images/logo-big.png" alt="radio live big logo icon"/>
       </a>
     </div>
   )

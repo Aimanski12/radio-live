@@ -1,27 +1,45 @@
 import React, {Fragment, useContext} from 'react'
+import Link from 'next/link'
 import {RadioAppData} from '../../../utils/contextapi/context'
-import {showMenu, getTotal} from '../../../utils/common/helpers'
+import {showMenu, getTotal, urlFormatTxt, setName} from '../../../utils/common/helpers'
 
 function Categories() {
   const {radiodata} = useContext(RadioAppData)
 
   const topMenu = radiodata.isSet ? radiodata.data.topMenu.map((cat, i) => {
     return (
-      <li className='content-center menu-item text-3' key={i}>
-        <span className='content-center menu-name font-5'>
-          <img src={`/images/${cat.name}.svg`} alt=""/>{cat.name}</span>
-      </li>
+      <Link key={i}
+        href='/featured/[slug]'
+        as={`/featured/${urlFormatTxt(cat.name)}`}>
+        <a>
+          <li 
+            onClick={()=>showMenu('right')}
+            className='content-center menu-item text-3'>
+            <span className='content-center menu-name font-5'>
+              <img src={`/images/${cat.name}.svg`} 
+                alt={`${setName(cat.name)} icon`}/>{cat.name}</span>
+          </li>
+        </a>
+      </Link>
     )
   }) : null
 
   const categories = radiodata.isSet ? radiodata.data.categories.map((cat, i) => {
     return (
-      <li className='content-center menu-item text-3' key={i}>
-        <span className='content-center menu-name font-5'>
-          <img src={`/images/${cat.name}.svg`} alt=""/>{cat.name}
-        </span>
-        <span className='menu-station font-8'>{getTotal(cat.lists)}</span>
-      </li>
+      <Link key={i}
+        href='/categories/[slug]'
+        as={`/categories/${urlFormatTxt(cat.name)}`}>
+        <a>
+          <li 
+            onClick={()=>showMenu('right')}
+            className='content-center menu-item text-3'>
+            <span className='content-center menu-name font-5'>
+              <img src={`/images/${cat.name}.svg`} 
+                alt={`${setName(cat.name)} icon`}/>{cat.name}</span>
+            <span className='menu-station font-8'>{getTotal(cat.lists)}</span>
+          </li>
+        </a>
+      </Link>
     )
   }) : null
 
@@ -41,7 +59,9 @@ function Categories() {
           </div>
           <ul className='menu-items'>
             {topMenu}
-            <li className='content-center menu-item text-3'>
+            <li 
+              onClick={()=>showMenu('right')}
+              className='content-center menu-item text-3'>
               <span className='content-center menu-name font-5'>
                 <img src="/images/My Favorites.svg" alt=""/>
                 My Favorites

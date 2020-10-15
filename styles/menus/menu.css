@@ -64,6 +64,11 @@
   text-decoration: none;
 }
 
+.totalStations {
+  font-style: normal;
+  color: #7AEE93;
+  margin-right: 10px
+}
 
 .menu-name img{
   margin-right: 3px;
@@ -82,104 +87,10 @@
   background: #691D34;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 868px) {
-  .sidebar-menu {
-
-    width: 100%;
-    min-height: 90px;
-  }
-
-  .menu-header {
-
-    width: 100%;
-    flex-direction: row;
-    margin-top: 5px;
-    height: 40px;
-  }
-
-  .menu-header img {
-
-    width: 28px;
-    height: 28px;
-  }
-
-  .menu-header span {
-
-    margin-left: 5px;
-    display: block;
-    letter-spacing: -0.05em;
-    color: #F9E1E1;
-  }
-
-  .menu-items {
-
-    list-style: none;
-    width: 100%;
-  }
-
   .menu-item {
     width: calc(100% - 20px);
     padding: 0 10px;
     height: 45px;
-    
-    flex-direction: row;
-    justify-content: space-between;
-    color: #DBDBDB;
-    margin-bottom: 1px;
-    background: linear-gradient(90deg, #72122F 0%, #B74754 100%);
-    transition: all 0.15s ease-in
-  }
-
-  .menu-item:hover {
-
-    cursor: pointer;
-    background: linear-gradient(90deg, #8D2A48 0%, #BF4E5B 100%);
-    transition: all 0.15s ease-in
-  }
-
-  .menu-item:active {
-
-    transform: scale(0.92);
-    transition: all 0.1s ease-in
-  }
-
-  .menu-name {
-
-    flex-direction: row;
-    letter-spacing: -0.03em;
-  }
-
-  .menu-name img {
-
-    margin-right: 3px;
-    height: 30px;
-    width: 30px;
-  }
-
-  .menu-station {
-
-    width: 50px;
-    border-radius: 3px;
-    line-height: 25px;
-    height: 25px;
-    color: #00DBE9;
-    padding-right: 5px;
-    text-align: right;
-    background: #691D34;
   }
 }
-

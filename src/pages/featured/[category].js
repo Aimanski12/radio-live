@@ -7,15 +7,16 @@ import SideBar from '../../components/SideNavbar/SideBar'
 import TopMenu from '../../components/Dashboard/TopMenu/TopMenu'
 import Footer from '../../components/Footer/Footer'
 import Categories from '../../components/Dashboard/Categories/Categories'
-import Countries from '../../components/Dashboard/Countries/Countries'
-import {checkIfExists, findData, setName} from '../../utils/common/helpers'
+import FeaturedRadio from '../../components/Dashboard/Featured/Featured'
+import {checkIfExists, findData} from '../../utils/common/helpers'
 import {getData} from '../../utils/apis/api'
 
-function Country() {
+
+function Featured() {
   const router = useRouter()
   const [data, setData] = useState({
     isSet: false,
-    continent: '',
+    categories: '',
     data: {}
   })
   const {radiodata, setradiodata} = useContext(RadioAppData)
@@ -25,41 +26,41 @@ function Country() {
       setradiodata(data)
     })()
   }
-  
   useEffect(() => {
     const a = window.location.pathname.split('/')[2].split('-').join(' ')
     
     // check if the query matched the continent list
     if(radiodata.isSet){
-      if(!checkIfExists(a, radiodata.data.continents)) {
+      if(!checkIfExists(a, radiodata.data.topMenu)) {
         router.replace('/404', window.location.pathname)
       }
     }
-    if(radiodata.data.continents !== undefined) {
-      const selData = findData(a, radiodata.data.continents)
-      if(a !== data.continent) {
+
+    if(radiodata.data.topMenu !== undefined) {
+      const selData = findData(a, radiodata.data.topMenu)
+      if(a !== data.categories) {
         setData({
           isSet: true,
           data: selData,
-          continent: a
+          categories: a
         })
       }
     }
   })
+
   return (
     <div className='content-center main-container'>
       <Head>
-        <title>Radio Live | Continent | {setName(data.continent)}</title>
+        <title>Radio Live | Categories</title>
         <link rel="icon" href="/images/logo.ico" />
       </Head>
       <main className='content-center main-wrapper'>
         <TopNavBar />
         <div className="content-wrapper">
           <SideBar/>
-          
           <div className='dashboard-container'>
             <TopMenu />
-            { data.isSet ? <Countries data={data.data}/> : null }
+            { data.isSet ? <FeaturedRadio data={data.data}/> : null }
             <Categories />
           </div>
         </div>
@@ -69,4 +70,4 @@ function Country() {
   )
 }
 
-export default Country
+export default Featured

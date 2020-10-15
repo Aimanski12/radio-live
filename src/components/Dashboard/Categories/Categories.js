@@ -1,19 +1,25 @@
 import React, {useContext} from 'react'
-import {getTotal} from '../../../utils/common/helpers'
+import Link from 'next/link'
+import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 import {RadioAppData} from '../../../utils/contextapi/context'
-
 
 function Categories() {
   const {radiodata} = useContext(RadioAppData)
 
   const categories = radiodata.isSet ? radiodata.data.categories.map((cat, i) => {
     return (
-      <li className='content-center category-item text-3' key={i}>
-        <span className='content-center category-name font-5'>
-          <img src={`/images/${cat.name}.svg`} alt=""/>{cat.name}
-        </span>
-        <span className='category-station font-8'>{getTotal(cat.lists)}</span>
-      </li>
+      <Link key={i}
+        href='/categories/[category]'
+        as={`/categories/${urlFormatTxt(cat.name)}`}>
+        <a>
+          <li className='content-center category-item text-3'>
+            <span className='content-center category-name font-5'>
+              <img src={`/images/${cat.name}.svg`} alt=""/>{cat.name}
+            </span>
+            <span className='category-station font-8'>{getTotal(cat.lists)}</span>
+          </li>
+        </a>
+      </Link>
     )
   }) : null
 

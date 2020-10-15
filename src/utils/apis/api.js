@@ -1,12 +1,19 @@
-import {home} from './apiFunc'
+import {home, getByGenre, getByCountry} from './apiFunc'
 
 
-export const getData = async (route) => {
+export const getData = async (route, params) => {
   let data;
-
-  switch(route) {
-    case 'home' : data = await home()
-  }
   
+  switch(route) {
+    case 'home' : data = await home();
+      break
+    case 'genre' : data = await getByGenre(params);
+      break
+    case 'country': data = await getByCountry(params);
+      break
+    case 'name': data = await getStation(params);
+      break
+  }
+
   return data
 }

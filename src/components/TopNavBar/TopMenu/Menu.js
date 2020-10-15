@@ -7,11 +7,11 @@ function Logo() {
       <div className="content-center menu-burger">
         <img 
           onClick={()=>showMenu('left')}
-          src="images/menu-burger.svg" alt="menu burger icon"/>
+          src="/images/menu-burger.svg" alt="menu burger icon"/>
       </div>
       <div className='small-logo'>
         <a href="/">
-          <img src="/images/small-logo.svg" alt=""/>
+          <img src="/images/small-logo.svg" alt="radio live small icon"/>
         </a>
       </div>
       <div className="menu-lens">

@@ -8,55 +8,36 @@
 @media (max-width: 1168px) {
   .logo {
     height: 246px;
-
-    width: 100%;
   }
-
   .logo a img {
     width: 150px;
     height: auto;
-
   }
 }
 
 @media (max-width: 1068px) {
   .logo {
     height: 226px;
-    
-    width: 100%;
   }
-
   .logo a img {
     width: 130px;
-    
-    height: auto;
   }
 }
 
 @media (max-width: 968px) {
   .logo {
     height: 246px;
-
-    width: 100%;
   }
-
   .logo a img {
     width: 140px;
-
-    height: auto;
   }
 }
 
 @media (max-width: 868px) {
   .logo {
     height: 226px;
-
-    width: 100%;
   }
-
   .logo a img {
     width: 130px;
-
-    height: auto;
   }
 }

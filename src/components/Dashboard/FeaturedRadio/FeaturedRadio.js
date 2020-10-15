@@ -1,4 +1,5 @@
 import React from 'react'
+import {openWindow} from '../../../utils/common/helpers'
 
 function FeaturedRadio(props) {
 
@@ -26,12 +27,13 @@ function FeaturedRadio(props) {
               </div>
             </div>
             <div className="content-center radio-listen">
-              <div className="content-center listen-btn-wrapper">
+              <div className="content-center listen-btn-wrapper"
+                onClick={()=>openWindow(station.name)}>
                 <span className='text-2 font-6'>Listen Now</span>
-                <img src="/images/Play.svg" alt=""/>
+                <img src="/images/Play.svg" alt="blue play icon"/>
               </div>
               <div className='like'>
-                <img src="/images/Like.svg" alt=""/>
+                <img src="/images/Like.svg" alt="red heart like icon"/>
               </div>
             </div>
           </div>
@@ -44,15 +46,9 @@ function FeaturedRadio(props) {
       <div className='content-center menu-header text-3'>
         <span className='font-2'>{props.textHeader}</span>
       </div>
-
       <div className="radio-wrapper">
         {stations}
       </div>
-      
-      {/* <div className="pagination">
-        <h1>Pagination</h1>
-      </div> */}
-
     </div>
   )
 }

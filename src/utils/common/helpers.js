@@ -64,7 +64,6 @@ export function urlFormatTxt(text) {
 }
 
 
-
 // this function will capitalize the first letter 
 // of every word
 export const setName = (name) => {
@@ -87,17 +86,22 @@ export const setName = (name) => {
 // is in the listed data
 export function checkIfExists(query, lists) {
   return lists.some(list => {
-    return list.name === setName(query)
+    return setName(list.name) === setName(query)
   })
+}
+
+// function to check if the 
+export function checkUrlValues (query, lists) {
+  let queryList = checkIfExists(query, lists)
+  return queryList ? findData(query, lists) : false
 }
 
 
 // function to sort the data from the array of objects
 // used in continents, genre,  categories and top menu
 export function findData(url, data) {
-   let URL = setName(url)
   let a = data.filter(a => {
-    return a.name === URL
+    return setName(a.name) === setName(url)
   })
   return a[0]
 }
@@ -119,30 +123,32 @@ export function getCountryCode(name) {
   return code
 }
 
+// function to sort the radio stations by popularity
+export function sortByVote (data) {
+  return data.sort((a, b) => {
+    var textA = a.votes;
+    var textB = b.votes;
+    return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+  })
+}
+
+// function for slice the whole piece of list and return 
+// only the number of page that is needed for the page
+// like 21 sets of data
+export function sliceData(val, lists) {
+  const a = val * 21
+  const b = a - 21
+  return lists.slice(b, a)
+}
+
+// function to open a new window
+export function openWindow(name) {
+  let url = 'localhost:3000/listen'
 
 
+  window.open(url)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function to sort all lists according to the list pattern
-// function sortList(continent){
-//   return continent.map(name => {
-//     for(let x = 0; x < data.length; x++){
-//       if(data[x].name === name) return data[x]
-//     }
-//   })
-// }
+  // let params = `scrollbars=no, resizable=no, status=no, location=no, toolbar=no,menubar=no, width=360, height=520, left=100, top=100`;
+  // window.open(url, 'sample', params)
+}

@@ -28,6 +28,13 @@ footer span:last-child {
   width: 250px;
   height: 100%;
 }
+
+.footer-icons a{
+  width: 35px;
+  height: 35px;
+} 
+
+
 .footer-icons img{
   width: 35px;
   height: auto;
@@ -52,6 +59,10 @@ footer span:last-child {
   .footer-icons {
     width: 230px;
   }
+  .footer-icons a {
+    width: 32px;
+    height: 32px;
+  }
   .footer-icons img{
     width: 32px;
   }
@@ -63,6 +74,10 @@ footer span:last-child {
   }
   .footer-icons {
     width: 210px;
+  }
+  .footer-icons a {
+    width: 30px;
+    height: 30px;
   }
   .footer-icons img {
     width: 30px;

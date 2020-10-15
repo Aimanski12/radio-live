@@ -1,28 +1,29 @@
+import React from 'react'
+import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-import {getCountryCode, getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 
 function Countries(props) {
   const router = useRouter()
-  const country = router.query.countries
+  const category = router.query.category
 
   function setCountries() {
-    return props.data.lists.map((list, i) => {
+    return props.data.lists.map((b, i) => {
       return (
         <Link key={i}
-          href='/continents/[countries]/[slug]'
-          as={`/continents/${urlFormatTxt(country)}/${urlFormatTxt(list.name)}`}>
+          href='/featured/[category]/[slug]'
+          as={`/featured/${urlFormatTxt(category)}/${urlFormatTxt(b.name)}`}>
           <a>
             <div className="country-item">
               <div className="country-item-wrapper">
                 <div className="content-center country-img-wrapper">
-                  <img src={getCountryCode(list.name)} alt=""/>
+                  <img src={`/images/${props.data.name}.svg`} alt=""/>
                 </div>
                 <div className="content-center country-name">
-                  <h2 className='text-2 font-1'>{list.name}</h2>
+                  <h2 className='text-2 font-1'>{b.name}</h2>
                   <div className='content-center country-stations'>
                     <span className='total-station text-2 font-7'>Stations</span>
-                    <span className='text-2 totals font-4'>{list.stationcount}</span>
+                    <span className='text-2 totals font-4'>{b.stationcount}</span>
                   </div>
                 </div>
               </div>

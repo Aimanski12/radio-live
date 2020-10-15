@@ -5,6 +5,10 @@
   background: linear-gradient(90.04deg, #731330 0.03%, #B74754 99.97%);
 }
 
+.top-menu a{
+  text-decoration: none;
+}
+
 .top-menu ul {
   width: 100%;
   height: 100%;
@@ -15,6 +19,7 @@
 .top-menu-item {
   flex-direction: row
 }
+
 
 .top-menu-item img {
   width: 38px;

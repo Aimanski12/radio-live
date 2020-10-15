@@ -22,6 +22,9 @@ import '../../styles/dashboard/categories.css'
 import '../../styles/dashboard/countries.css'
 import '../../styles/dashboard/pagination.css'
 
+// listen css
+import '../../styles/listen/listen.css'
+
 // footer css
 import '../../styles/footer/footer.css'
 

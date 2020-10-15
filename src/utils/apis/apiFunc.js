@@ -16,4 +16,17 @@ export const home = async () => {
   return {continents, categories, topMenu, genre}
 }
 
+export const getByGenre = async (genre) => {
+  const contData = await fetchData(`stations/bytagexact/${genre}`)
+  return contData 
+}
 
+export const getByCountry = async (country) => {
+  const contData = await fetchData(`stations/bycountry/${country}`)
+  return contData
+}
+
+export const getStation = async (name) => {
+  const station = await fetchData(`stations/search?name=${name}`)
+  return station
+}
