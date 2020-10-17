@@ -11,7 +11,7 @@ function Intro() {
     tl.to(loading, {
       opacity: 0.9,
       duration: 1.5,
-      repeat: 3
+      repeat: 2
     });
     tl.to(intro, {
       top: 0,

@@ -7,11 +7,11 @@ import TopNavBar from '../../../components/TopNavBar/TopNavBar'
 import SideBar from '../../../components/SideNavbar/SideBar'
 import TopMenu from '../../../components/Dashboard/TopMenu/TopMenu'
 import Footer from '../../../components/Footer/Footer'
-import Intro from '../../../components/Intro/Intro'
 import Categories from '../../../components/Dashboard/Categories/Categories'
 import Radios from '../../../components/Dashboard/Radios/Radios'
 import {checkUrlValues, sortByVote, setName, sliceData} from '../../../utils/common/helpers'
 import {getData} from '../../../utils/apis/api'
+import Intro from '../../../components/Intro/Intro'
 import {setFirebase} from '../../../utils/common/firebase'
 
 function FeaturedRadio() {
