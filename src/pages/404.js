@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {RadioAppData} from '../utils/contextapi/context'
+import Meta from '../components/Meta/Meta'
 import Head from 'next/head'
 import TopNavBar from '../components/TopNavBar/TopNavBar'
 import SideBar from '../components/SideNavbar/SideBar'
@@ -8,8 +9,6 @@ import Footer from '../components/Footer/Footer'
 import FeaturedRadio from '../components/Dashboard/FeaturedRadio/FeaturedRadio'
 import Categories from '../components/Dashboard/Categories/Categories'
 import {getData} from '../utils/apis/api'
-import stations from '../utils/data/selected.json'
-
 
 export default function NotFound() {
   const {radiodata, setradiodata} = useContext(RadioAppData)
@@ -25,6 +24,7 @@ export default function NotFound() {
       <Head>
         <title>Radio Live | Not Found</title>
         <link rel="icon" href="/images/logo.ico" />
+        <Meta />
       </Head>
 
       <main className='content-center main-wrapper'>

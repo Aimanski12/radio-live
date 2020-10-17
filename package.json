@@ -10,10 +10,12 @@
   "dependencies": {
     "axios": "^0.20.0",
     "country-list": "^2.2.0",
+    "gsap": "^3.5.1",
     "lodash": "^4.17.20",
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-paginate": "^6.5.0"
+    "react-paginate": "^6.5.0",
+    "ua-parser-js": "^0.7.22"
   }
 }

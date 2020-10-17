@@ -1,4 +1,4 @@
-import {home, getByGenre, getByCountry} from './apiFunc'
+import {home, getByGenre, getByCountry, getStation} from './apiFunc'
 
 
 export const getData = async (route, params) => {

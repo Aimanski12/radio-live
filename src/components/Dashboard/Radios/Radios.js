@@ -1,13 +1,15 @@
 import React from 'react'
 import Pagination from '../../Pagination/Pagination'
-import {setName, formtNum} from '../../../utils/common/helpers'
+import {formtNum} from '../../../utils/common/helpers'
 import Radio from './components/Radio'
 
 function Radios(props) {
 
   const stations = props.radios.map((radio, i) =>{
-    console.log(radio)
-    return ( <Radio station={radio} key={i}/> )
+    return ( <Radio 
+              removeStn={props.removeStn}
+              station={radio} key={i}
+              likeBtn={props.likeBtn}/> )
   })
 
   return (
@@ -20,7 +22,12 @@ function Radios(props) {
         </span>
       </div>
       <div className="radio-wrapper">
-        {stations}
+        {
+          props.total === 0 ? 
+            <div className="content-center radio-wrapper">
+              <h3 className='text-2 font-1 no-results'>You don't have any liked stations.</h3>
+            </div> : stations
+        }
       </div>
 
       {/* do not show the pagination if page is ony1 */}
@@ -28,8 +35,6 @@ function Radios(props) {
         <Pagination 
           click={(val=>props.click(val))}
           totalpages={props.totalpages} /> : null }
-      
-
     </div>
   )
 }

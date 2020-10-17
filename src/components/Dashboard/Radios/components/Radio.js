@@ -1,4 +1,5 @@
 import React from 'react'
+import {openWindow, saveRadioToSession} from '../../../../utils/common/helpers'
 
 function Radio(props) {
   return (
@@ -20,12 +21,23 @@ function Radio(props) {
           </div>
         </div>
         <div className="content-center radio-listen">
-          <div className="content-center listen-btn-wrapper">
+          <div className="content-center listen-btn-wrapper"
+            onClick={()=> openWindow(props.station.name)}>
             <span className='text-2 font-6'>Listen Now</span>
             <img src="/images/Play.svg" alt=""/>
           </div>
           <div className='like'>
-            <img src="/images/Like.svg" alt=""/>
+            {
+              props.likeBtn === 'like' ? 
+                <img 
+                  onClick={()=> saveRadioToSession(props.station)}
+                  src="/images/Like.svg" 
+                  alt="heart-like icon"/> : 
+                <img 
+                  onClick={()=> props.removeStn(props.station)}
+                  src="/images/Trash.svg" 
+                  alt="delete icon"/>
+            }
           </div>
         </div>
       </div>

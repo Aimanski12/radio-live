@@ -28,6 +28,9 @@ import '../../styles/listen/listen.css'
 // footer css
 import '../../styles/footer/footer.css'
 
+// intro css
+import '../../styles/intro/intro.css'
+
 import {RadioDataContext} from '../utils/contextapi/context'
 
 function MyApp({ Component, pageProps }) {

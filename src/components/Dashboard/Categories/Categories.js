@@ -19,22 +19,19 @@ function Categories() {
             <span className='category-station font-8'>{getTotal(cat.lists)}</span>
           </li>
         </a>
-      </Link>
-    )
-  }) : null
+      </Link> )
+    }) : null
 
   return (
     <div className="category-radio">
       <div className='content-center menu-header text-3'>
         <span className='font-2'>Radio Categories</span>
       </div>
-
       <div className="category-list-wrapper">
         <ul className='category-lists'>
           {categories}
         </ul>
       </div>
-
     </div>
   )
 }

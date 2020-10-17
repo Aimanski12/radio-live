@@ -1,5 +1,5 @@
 import React from 'react'
-import {openWindow} from '../../../utils/common/helpers'
+import {openWindow, saveRadioToSession} from '../../../utils/common/helpers'
 
 function FeaturedRadio(props) {
 
@@ -33,7 +33,9 @@ function FeaturedRadio(props) {
                 <img src="/images/Play.svg" alt="blue play icon"/>
               </div>
               <div className='like'>
-                <img src="/images/Like.svg" alt="red heart like icon"/>
+                <img 
+                  onClick={()=> saveRadioToSession(station, 'home')}
+                  src="/images/Like.svg" alt="red heart like icon"/>
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import React, {useContext, useEffect,useState} from 'react'
 import Meta from '../../components/Meta/Meta'
-import {useRouter} from 'next/router'
 import {RadioAppData} from '../../utils/contextapi/context'
 import Head from 'next/head'
 import TopNavBar from '../../components/TopNavBar/TopNavBar'
@@ -8,22 +7,20 @@ import SideBar from '../../components/SideNavbar/SideBar'
 import TopMenu from '../../components/Dashboard/TopMenu/TopMenu'
 import Footer from '../../components/Footer/Footer'
 import Categories from '../../components/Dashboard/Categories/Categories'
-import Subcategories from '../../components/Dashboard/Subcategories/Subcategories'
-import {checkIfExists, findData} from '../../utils/common/helpers'
-import {setFirebase} from '../../utils/common/firebase'
+import Radios from '../../components/Dashboard/Radios/Radios'
 import Intro from '../../components/Intro/Intro'
+import {sliceData, setSession} from '../../utils/common/helpers'
+import {setFirebase} from '../../utils/common/firebase'
 import {getData} from '../../utils/apis/api'
 
-function RadioCategory() {
-  const router = useRouter()
-  const [data, setData] = useState({
-    isSet: false,
-    categories: '',
-    data: {}
-  })
+function MyFavorites() {
   const [hasSession, setSessionData] = useState({
     isSet: false,
     session: false
+  })
+  const [data, setData] = useState({
+    isSet: false,
+    radios: {}
   })
   const {radiodata, setradiodata} = useContext(RadioAppData)
   if (!radiodata.isSet) {
@@ -32,46 +29,59 @@ function RadioCategory() {
       setradiodata(data)
     })()
   }
-  
-  useEffect(() => {
-    const a = window.location.pathname.split('/')[2].split('-').join(' ')
-    // check if the query matched the continent list
-    if(radiodata.isSet){
-      if(!checkIfExists(a, radiodata.data.categories)) {
-        router.replace('/404', window.location.pathname)
-      }
-    }
 
+  useEffect(() => {
     if(!hasSession.isSet){
       (async function(){
-        const hasSession = await setFirebase(`Categories ${a}`)
+        const hasSession = await setFirebase('Favorites')
         if(!hasSession){
           setSessionData({ isSet: true, session: true })
         } else {
           setSessionData({ isSet: true})
         }
+        
 
-        if(radiodata.data.continents !== undefined) {
-          const selData = findData(a, radiodata.data.categories)
-          if(a !== data.categories) {
-            setData({
-              isSet: true,
-              data: selData,
-              categories: a
+        const sessiondata = sessionStorage.getItem('radio-live')
+        if(!data.isSet){
+          if(sessiondata === null){
+            setData({ ...data, radios: [], selRadio: [], isSet: true
             })
+          } else {
+            let storedRadios = JSON.parse(sessiondata)
+            setData({ isSet: true, radios: storedRadios,
+              selRadio: sliceData(1, storedRadios.station) })
           }
         }
+
       })()
     }
   })
 
+  function getNewData(val) {
+    const newSet = sliceData(val, data.radios)
+    setData({ ...data, selRadios: newSet })
+  }
+
+  function removeStation (station) {
+    const newSet = data.radios.station.filter(n => {
+      return n.name !== station.name
+    })
+
+    let sessionData = { ...data.radios, station: newSet }
+
+    setSession(sessionData)
+    setData({ ...data, selRadio: sliceData(1, sessionData.station), radios: sessionData })
+  }
+
+
   return (
     <div className='content-center main-container'>
       <Head>
-        <title>Radio Live | {data.data.name}</title>
+        <title>Radio Live | My Favorite Radios</title>
         <link rel="icon" href="/images/logo.ico" />
         <Meta />
       </Head>
+
       { hasSession.isSet ? (
       <>
         { hasSession.session ? <Intro/> : null }
@@ -81,7 +91,15 @@ function RadioCategory() {
             <SideBar/>
             <div className='dashboard-container'>
               <TopMenu />
-              { data.isSet ? <Subcategories data={data.data}/> : null }
+              { data.isSet ? 
+                <Radios 
+                  likeBtn='delete'
+                  removeStn={(stn) => removeStation(stn)}
+                  textHeader='My Favorite Stations'
+                  radios={data.selRadio}
+                  total={data.radios.station.length}
+                  click={(val)=>getNewData(val)}
+                  totalpages={data.data / 21} /> : null }
               <Categories />
             </div>
           </div>
@@ -91,4 +109,4 @@ function RadioCategory() {
   )
 }
 
-export default RadioCategory
+export default MyFavorites

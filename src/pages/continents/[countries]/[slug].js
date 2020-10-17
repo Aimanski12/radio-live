@@ -1,15 +1,18 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
+import Meta from '../../../components/Meta/Meta'
 import {RadioAppData} from '../../../utils/contextapi/context'
 import Head from 'next/head'
 import TopNavBar from '../../../components/TopNavBar/TopNavBar'
 import SideBar from '../../../components/SideNavbar/SideBar'
 import TopMenu from '../../../components/Dashboard/TopMenu/TopMenu'
 import Footer from '../../../components/Footer/Footer'
+import Intro from '../../../components/Intro/Intro'
 import Categories from '../../../components/Dashboard/Categories/Categories'
 import Radios from '../../../components/Dashboard/Radios/Radios'
 import {checkUrlValues, sortByVote, setName, sliceData} from '../../../utils/common/helpers'
 import {getData} from '../../../utils/apis/api'
+import {setFirebase} from '../../../utils/common/firebase'
 
 function CountryRadio() {
   const router = useRouter()
@@ -21,6 +24,11 @@ function CountryRadio() {
     lists: {}, 
     totalpages: 0,
     radios: {}
+  })
+  
+  const [hasSession, setSessionData] = useState({
+    isSet: false,
+    session: false
   })
 
   if (!radiodata.isSet) {
@@ -45,20 +53,28 @@ function CountryRadio() {
         if(!checkUrlValues(country, getLists.lists)){
           router.replace('/404', window.location.pathname)
         } else {
-          // get the radio station and put to the state
-          (async function () {
-            let stations = sortByVote(await getData('country', country))
-            if(radiogenre.page !== country){
-              setGenre({
-                isSet: true,
-                page: country,
-                textHeader: setName(country),
-                lists: stations,
-                totalpages: Math.ceil(stations.length / 21),
-                radios: sliceData(1, stations)
-              })
-            }
-          })()
+          if(!hasSession.isSet){
+            (async function () {
+              const hasSession = await setFirebase(`Continent ${continent} ${country}`)
+              if(!hasSession){
+                setSessionData({ isSet: true, session: true })
+              } else {
+                setSessionData({ isSet: true})
+              }
+              // get the radio station and put to the state
+              let stations = sortByVote(await getData('country', country))
+              if(radiogenre.page !== country){
+                setGenre({
+                  isSet: true,
+                  page: country,
+                  textHeader: setName(country),
+                  lists: stations,
+                  totalpages: Math.ceil(stations.length / 21),
+                  radios: sliceData(1, stations)
+                })
+              }
+            })()
+          }
         }
       }
     }
@@ -75,27 +91,32 @@ function CountryRadio() {
   return (
     <div className='content-center main-container'>
       <Head>
-        <title>{`Radio Live | asd`}</title>
+        <title>{`Radio Live | ${radiogenre.textHeader} Radios`}</title>
         <link rel="icon" href="/images/logo.ico" />
+        <Meta />
       </Head>
-      <main className='content-center main-wrapper'>
-        <TopNavBar />
-        <div className="content-wrapper">
-          <SideBar/>
-          <div className='dashboard-container'>
-            <TopMenu />
-            { radiogenre.isSet ? 
-              <Radios 
-                textHeader={radiogenre.textHeader}
-                click={(val)=>getNewData(val)}
-                radios={radiogenre.radios}
-                total={radiogenre.lists.length}
-                totalpages={radiogenre.totalpages} /> : null }
-            { radiogenre.isSet ? <Categories /> : null }
+      { hasSession.isSet ? (
+      <>
+        { hasSession.session ? <Intro/> : null }
+        <main className='content-center main-wrapper'>
+          <TopNavBar />
+          <div className="content-wrapper">
+            <SideBar/>
+            <div className='dashboard-container'>
+              <TopMenu />
+              { radiogenre.isSet ? 
+                <Radios 
+                  likeBtn='like'
+                  textHeader={radiogenre.textHeader}
+                  click={(val)=>getNewData(val)}
+                  radios={radiogenre.radios}
+                  total={radiogenre.lists.length}
+                  totalpages={radiogenre.totalpages} /> : null }
+              { radiogenre.isSet ? <Categories /> : null }
+            </div>
           </div>
-        </div>
-        <Footer />
-      </main>
+          <Footer />
+        </main> </> ) : null }
     </div>
   )
 }

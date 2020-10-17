@@ -5,8 +5,8 @@
 }
 
 .r-wrapper {
-  width: 320px;
-  height: 500px;
+  width: 310px;
+  height: 480px;
   background: linear-gradient(180deg, #7A212F 0%, #CA3243 100%);
 }
 
@@ -49,11 +49,14 @@
   color: #00DBE9;
   text-align: center;
   height: 30px;
+  overflow: hidden;
+  width: 94%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .l-location {
   height: 25px;
-  
   flex-direction: row;
 }
 
@@ -70,17 +73,22 @@
 
 .listen-audio {
   width: 100%;
-  height: 60px;
-  margin-bottom: 40px;
+  height: 50px;
+  margin-bottom: 30px;
 }
 
-.listen-audio audio:focus{
+.listen-audio video, .listen-audio audio{
+  width: 90%;
+  height: 50px;
+}
+
+.listen-audio audio:focus, .listen-audio video:focus{
   outline: none;
 }
 
 .listen-footer {
   width: 100%;
-  height: 90px;
+  height: 80px;
   justify-content: center;
 }
 

@@ -9,22 +9,22 @@
     "name": "Rastapuls Reggae Station"
   },
   {
-    "favicon": "http://static.ondacero.es/img/logo-ondacero.png",
-    "homepage": "http://www.ondacero.es/",
+    "favicon": "http://www.rac1.cat/rsc/images/logo.jpg",
+    "homepage": "http://rac1.org/",
     "country": "Spain",
-    "state": "Madrid",
-    "url": "http://icecast-streaming.nice264.com/ondacero",
-    "url_resolved": "http://icecast-streaming.nice264.com/ondacero",
-    "name": "Onda Cero"
+    "state": "Barcelona",
+    "url": "http://streaming3.radiocat.net:80/",
+    "url_resolved": "https://streaming.rac1.cat/",
+    "name": "RAC1"
   },
   {
-    "favicon": "http://www.streamsolution.net/services-logos/mmFWJBfbj08OcUaGGhAanzoSB7xh4Kl7I43fpJao-400x400.jpg",
-    "homepage": "http://www.stereocitta.it/",
-    "country": "Italy",
-    "state": "Veneto",
-    "url": "http://onair11.xdevel.com:8134/;stream.mp3",
-    "url_resolved": "http://onair11.xdevel.com:8134/;stream.mp3",
-    "name": "Radio Stereocittà"
+    "favicon": "https://www.srf.ch/extension/srf_shared/design/standard/images/logos/srflogo.png",
+    "homepage": "https://www.srf.ch/radio-srf-3",
+    "country": "Switzerland",
+    "state": "Switzerland",
+    "url": "http://stream.srg-ssr.ch/drs3/aacp_32.m3u",
+    "url_resolved": "http://stream.srg-ssr.ch/m/drs3/aacp_32",
+    "name": "Radio SRF 3"
   },
   {
     "favicon": "https://mytuner.global.ssl.fastly.net/media/tvos_radios/cjqfbpl6lyyn.png",
@@ -36,22 +36,22 @@
     "name": "#1980s Zoom"
   },
   {
-    "favicon": "http://www.jcbasimul.com/wordpress/wp-content/uploads/2015/06/081-e3-88-b1-e3-82-a8-e3-83-95-e3-82-a8-e3-83-a0-e6-b1-9f-e6-88-b8-e5-b7-9d.gif",
-    "homepage": "http://www.fm843.co.jp/",
+    "favicon": "http://www.jcbasimul.com/wordpress/wp-content/uploads/2015/06/104-e3-88-b1-e3-82-b3-e3-83-9f-e3-83-a5-e3-83-8b-e3-83-86-e3-82-a3-e3-82-a8-e3-83-95-e3-82-a8-e3-83-a0-e4-b8-8b-e9-96-a2.jpg",
+    "homepage": "http://www.c-fm.co.jp/",
     "country": "Japan",
-    "state": "Tokyo",
-    "url": "http://musicbird.leanstream.co/JCB032-MP3",
-    "url_resolved": "http://musicbird.leanstream.co/JCB032-MP3",
-    "name": "84.3 FMえどがわ"
+    "state": "",
+    "url": "http://musicbird.leanstream.co/JCB084-MP3",
+    "url_resolved": "http://musicbird.leanstream.co/JCB084-MP3",
+    "name": "Come On! FM (カモンエフエム, JOZZ8AE-FM, 76.4 MHz, Shimonoseki, Yamaguchi)"
   },
   {
-    "favicon": "http://ucfm.com.au/favicon.ico",
-    "homepage": "http://ucfm.com.au/",
+    "favicon": "http://www.abc.net.au/triplej/img/meta/triplej.jpg",
+    "homepage": "http://www.abc.net.au/triplej/",
     "country": "Australia",
-    "state": "Sydney",
-    "url": "http://stream.ucfm.com.au:8000/listen.mp3",
-    "url_resolved": "http://stream.ucfm.com.au:8000/listen.mp3",
-    "name": "87.8 UCFM"
+    "state": "",
+    "url": "http://live-radio01.mediahubaustralia.com/2TJW/mp3/;stream.nsv",
+    "url_resolved": "http://live-radio01.mediahubaustralia.com/2TJW/mp3/;stream.nsv",
+    "name": "ABC Triple J (MP3)"
   },
   {
     "favicon": "http://liveam.tv/img/2494.jpg",
@@ -72,13 +72,14 @@
     "name": "Oli 968 Radio"
   },
   {
-    "favicon": "http://static.radio.fr/images/broadcasts/ab/6b/6602/c300.png",
-    "homepage": "http://www.ancientfm.com/",
+    "favicon": "https://lapfoxradio.com//apple-touch-icon-180x180.png",
+    "homepage": "https://lapfoxradio.com/",
     "country": "Canada",
-    "state": "Ontario",
-    "url": "http://5.152.208.98:8058/",
-    "url_resolved": "http://5.152.208.98:8058/",
-    "name": "Ancient FM"
+    "state": "",
+    "tags": "electronic,multi genre,320kbps,furry",
+    "url": "https://lapfoxradio.com/lapfox_radio.pls",
+    "url_resolved": "https://radio.lapfoxradio.com/radio/8000/stream-ogg-320.ogg",
+    "name": "Lapfox Radio"
   },
   { 
     "favicon": "https://tingfm.com/favicon.ico",
@@ -90,49 +91,49 @@
     "name": "90.7mixfm"
   },
   {
-    "favicon": "http://img.cbs.co.kr/cbs/sns/default.png",
-    "homepage": "http://www.cbs.co.kr/",
+    "favicon": "https://listen.moe/public/images/icons/apple-touch-icon-kpop.png",
+    "homepage": "https://listen.moe/kpop",
     "country": "South Korea",
-    "state": "Seoul",
-    "url": "http://aac.cbs.co.kr/cbs939/_definst_/cbs939.stream/playlist.m3u8",
-    "url_resolved": "http://aac.cbs.co.kr/cbs939/_definst_/cbs939.stream/playlist.m3u8",
-    "name": "cbs music"
+    "state": "",
+    "url": "https://listen.moe/kpop/stream",
+    "url_resolved": "https://listen.moe/kpop/stream",
+    "name": "Listen.moe Kpop"
   },
   {
-    "favicon": "https://www.bluradio.com/images/logo.png",
-    "homepage": "http://www.bluradio.com/",
-    "country": "Colombia",
-    "state": "Colombia",
-    "url": "http://playerservices.streamtheworld.com/m3u/BLURADIO.m3u",
-    "url_resolved": "http://16823.live.streamtheworld.com:3690/BLURADIO_SC",
-    "name": "Blu Radio"
+    "favicon": "https://radiomaximadelperu.blogspot.com/favicon.ico",
+    "homepage": "http://radiomaximadelperu.blogspot.com",
+    "country": "Peru",
+    "state": "Lima",
+    "url": "http://stream.zeno.fm/yxwg54nyg3quv",
+    "url_resolved": "http://node-03.zeno.fm/yxwg54nyg3quv?rj-ttl=5&rj-tok=AAABdS0JsD0AZQDF7tng-zp5HQ",
+    "name": "RADIO MAXIMA  FM"
   },
   {
-    "favicon": "http://dzas.febc.ph/wp-content/themes/dzas_twentysixteen/public/css/images/dzas-logo-glow.png",
-    "homepage": "http://dzas.febc.ph/",
+    "favicon": "https://www.easyrock.com.ph/wp-content/themes/easy/images/logo.png",
+    "homepage": "https://www.easyrock.com.ph/",
     "country": "Philippines",
     "state": "",
-    "url": "http://icecast.eradioportal.com:8000/febc_dzas",
-    "url_resolved": "http://icecast.eradioportal.com:8000/febc_dzas",
-    "name": "702 DZAS"
+    "url": "https://jegala00.radioca.st/;",
+    "url_resolved": "https://jegala00.radioca.st/;",
+    "name": "96.3 Easy Rock Pilipinas"
   },
   {
-    "favicon": "https://static-media.streema.com/media/object-images/08f43b6b9b5d89ea4d3f0e929a602f36.jpeg",
-    "homepage": "http://www.metro951.com",
+    "favicon": "http://www.redglobe.org/images/Radio-TV/fm-la-tribu.png",
+    "homepage": "http://fmlatribu.com/",
     "country": "Argentina",
     "state": "Buenos Aires",
-    "url": "http://mp3.metroaudio1.stream.avstreaming.net:7200/metro",
-    "url_resolved": "http://mp3.metroaudio1.stream.avstreaming.net:7200/metro",
-    "name": "Metro FM 95.1"
+    "url": "http://vivo.fmlatribu.com/latribu.mp3",
+    "url_resolved": "http://vivo.fmlatribu.com/latribu.mp3",
+    "name": "La Tribu FM 88.7"
   },
   {
-    "favicon": "https://www.algerie360.com/wp-content/uploads/2012/05/la-radio-algerienne-organise-samedi-la-8eme-edition-de-loperation-eboueurs-de-la-mer.jpg",
-    "homepage": "http://www.radioalgerie.dz/chaine3/",
-    "country": "Algeria",
-    "state": "Alger",
-    "url": "http://ch3.ice.infomaniak.ch/ch3-64.aac",
-    "url_resolved": "http://ch3.ice.infomaniak.ch/ch3-64.aac",
-    "name": "Radio Algérienne Chaine 3"
+    "favicon": "http://imgs.sapo.pt/radiosonlineao/content/img/radio_escola.jpg",
+    "homepage": "http://radios.sapo.ao/radio-escola",
+    "country": "Angola",
+    "state": "",
+    "url": "http://radios.vpn.sapo.pt/AO/radio1.mp3",
+    "url_resolved": "https://radios.vpn.sapo.pt/AO/radio1.mp3",
+    "name": "Radio Escola 88.5 FM"
   },
   {
     "favicon": "http://clubfm.ae/img/logo.png",
@@ -162,13 +163,13 @@
     "name": "Jacaranda FM"
   },
   {
-    "favicon": "http://wrmx00.epimg.net/iconos/v1.x/v1.0/promos/promo_og_radio.png",
-    "homepage": "http://wradio.com.mx/",
+    "favicon": "http://www.rockradioonlinemexico.com/wp-content/uploads/2016/10/rrom-logo-vector-1.png",
+    "homepage": "http://www.rockradioonlinemexico.com/",
     "country": "Mexico",
-    "state": "Mexico City",
-    "url": "http://provisioning.streamtheworld.com/pls/W_RADIOAAC.pls",
-    "url_resolved": "http://16613.live.streamtheworld.com/W_RADIOAAC_SC",
-    "name": "96.9 W Radio"
+    "state": "",
+    "url": "http://playerservices.streamtheworld.com/pls/SAM07AAC286.pls",
+    "url_resolved": "http://15913.live.streamtheworld.com/SAM07AAC286_SC",
+    "name": "Rock Radio Online Mexico"
   },
   {
     "favicon": "https://lh4.ggpht.com/1wkXSH2IUHQfvtsXh0boaH8w-WaJlAH7sUiS9mPOJl6kCs21AbrfjqaZkXqXKVqx1A=w300",

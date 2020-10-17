@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import {RadioAppData} from '../../utils/contextapi/context'
+import Meta from '../../components/Meta/Meta'
 import Head from 'next/head'
 import TopNavBar from '../../components/TopNavBar/TopNavBar'
 import SideBar from '../../components/SideNavbar/SideBar'
@@ -8,11 +9,16 @@ import TopMenu from '../../components/Dashboard/TopMenu/TopMenu'
 import Footer from '../../components/Footer/Footer'
 import Categories from '../../components/Dashboard/Categories/Categories'
 import Radios from '../../components/Dashboard/Radios/Radios'
+import Intro from '../../components/Intro/Intro'
 import {checkIfExists, sortByVote, setName, sliceData} from '../../utils/common/helpers'
 import {getData} from '../../utils/apis/api'
-
+import {setFirebase} from '../../utils/common/firebase'
 
 function Genre() {
+  const [hasSession, setSessionData] = useState({
+    isSet: false,
+    session: false
+  })
   const router = useRouter()
   const {radiodata, setradiodata} = useContext(RadioAppData)
   const [radiogenre, setGenre] = useState({
@@ -40,21 +46,32 @@ function Genre() {
         router.replace('/404', window.location.pathname)
       }
     }
+    
+    if(!hasSession.isSet){
+        // get the radio station and put to the state
+      (async function () {
+          
+        const hasSession = await setFirebase('Genre')
+        if(!hasSession){
+          setSessionData({ isSet: true, session: true })
+        } else {
+          setSessionData({ isSet: true})
+        }
 
-    // get the radio station and put to the state
-    (async function () {
-      let genre = sortByVote(await getData('genre', a))
-      if(radiogenre.page !== a){
-        setGenre({
-          isSet: true,
-          page: a,
-          textHeader: setName(a),
-          lists: genre,
-          totalpages: Math.ceil(genre.length / 21),
-          radios: sliceData(1, genre)
-        })
-      }
-    })()
+
+        let genre = sortByVote(await getData('genre', a))
+        if(radiogenre.page !== a){
+          setGenre({
+            isSet: true,
+            page: a,
+            textHeader: setName(a),
+            lists: genre,
+            totalpages: Math.ceil(genre.length / 21),
+            radios: sliceData(1, genre)
+          })
+        }
+      })()
+    }
   })
 
   function getNewData(val) {
@@ -70,27 +87,32 @@ function Genre() {
       <Head>
         <title>{`Radio Live | ${radiogenre.textHeader} Genre`}</title>
         <link rel="icon" href="/images/logo.ico" />
+        <Meta />
       </Head>
 
-      <main className='content-center main-wrapper'>
-        <TopNavBar />
-        <div className="content-wrapper">
-          <SideBar/>
-          
-          <div className='dashboard-container'>
-            <TopMenu />
-            { radiogenre.isSet ? 
-              <Radios 
-                textHeader={radiogenre.textHeader}
-                click={(val)=>getNewData(val)}
-                radios={radiogenre.radios}
-                total={radiogenre.lists.length}
-                totalpages={radiogenre.totalpages} /> : null }
-            { radiogenre.isSet ? <Categories /> : null }
+      { hasSession.isSet ? (
+        <>
+          { hasSession.session ? <Intro/> : null }
+        <main className='content-center main-wrapper'>
+          <TopNavBar />
+          <div className="content-wrapper">
+            <SideBar/>
+            
+            <div className='dashboard-container'>
+              <TopMenu />
+              { radiogenre.isSet ? 
+                <Radios 
+                  likeBtn='like'
+                  textHeader={radiogenre.textHeader}
+                  click={(val)=>getNewData(val)}
+                  radios={radiogenre.radios}
+                  total={radiogenre.lists.length}
+                  totalpages={radiogenre.totalpages} /> : null }
+              { radiogenre.isSet ? <Categories /> : null }
+            </div>
           </div>
-        </div>
-        <Footer />
-      </main>
+          <Footer />
+        </main> </> ) : null }
        
     </div>
   )

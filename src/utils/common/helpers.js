@@ -1,4 +1,6 @@
 import countryHelper from '../data/countryHelper.json'
+import {saveInitalData, getTime} from './firebasehelpers'
+import {saveSession} from './firebase'
 import {getCode} from 'country-list'
 
 // function to show side menu bars
@@ -143,12 +145,54 @@ export function sliceData(val, lists) {
 
 // function to open a new window
 export function openWindow(name) {
-  let url = 'localhost:3000/listen'
+  let a = name.split('#').join('')
+  let url = `https://radio-live.vercel.app/listen?radio=${a}`
 
-
-  window.open(url)
-
-
-  // let params = `scrollbars=no, resizable=no, status=no, location=no, toolbar=no,menubar=no, width=360, height=520, left=100, top=100`;
-  // window.open(url, 'sample', params)
+  let params = `scrollbars=no, resizable=no, status=no, location=no, toolbar=no,menubar=no, width=320, height=500, left=50, top=50`;
+  window.open(url, 'sample', params)
 }
+
+
+// filter if the url has mp3, aac, m3u8 extension
+export function filerUrlExt(url) {
+  let xt;
+  const fUrl = url.split('.')
+  const ext = fUrl[fUrl.length - 1].toLowerCase()
+  if(ext === 'mp3' || ext === 'aac') {
+    xt = 'mp3'
+  } else if (ext === 'm3u8') {
+    xt = 'm3u8'
+  } else {
+    xt = 'url'
+  }
+  return xt
+}
+
+// function to set selected radio stations to the 
+export async function saveRadioToSession(station, page) {
+  const data = sessionStorage.getItem('radio-live')
+
+  if(!data) { 
+    const _id = await saveInitalData(page)
+    saveSession([{station}], _id)    
+  } else {
+    let oldData = JSON.parse(data)
+    let filterStoredRadios = oldData.station.filter(f =>{
+      return f.name !== station.name
+    })
+    filterStoredRadios.unshift(station)
+
+    let newSessionData = {
+      ...oldData,
+      station: filterStoredRadios
+    }
+    setSession(newSessionData)
+  }
+}
+
+// function set the radios to the session
+export function setSession (data) {
+  sessionStorage.setItem('radio-live', JSON.stringify(data))
+}
+
+

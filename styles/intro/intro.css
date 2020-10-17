@@ -1,0 +1,41 @@
+.intro {
+  width: 100%;
+  justify-content: space-between;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  z-index: 500;
+  background: #8B3251;
+  overflow: hidden;
+}
+
+.intro span {
+  color: #F9C6C6;
+  font-weight: 500;
+  letter-spacing: -0.08em;
+  font-size: 0.95em;
+}
+
+.intro .loading {
+  margin-top: 10px;
+  font-size: 0.8em;
+  opacity: 0;
+}
+
+.intro .copy-right {
+  margin-bottom: 20px;
+  font-size: 0.8em;
+}
+
+@media (max-width: 468px){
+  .intro img {
+    width: 150px;
+    height: auto;
+  }
+  .intro span {
+    font-size: 0.8em;
+  }
+  .intro .loading {
+    font-size: 0.75em;
+  }
+}

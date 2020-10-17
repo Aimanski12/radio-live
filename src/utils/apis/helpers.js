@@ -10,7 +10,6 @@ export function sortData(jsonData, data, cont) {
   })
 }
 
-
 // this function will sort the category 
 // and will set the text to capitalize the first letter
 export const sortCat = (continent, data) => {
