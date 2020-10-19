@@ -7,17 +7,22 @@ function Intro() {
     let loading = document.querySelector('.loading')
     let intro = document.querySelector('.intro')
 
-    let tl = gsap.timeline()
+    let tl = gsap.timeline({repeat: 2})
     tl.to(loading, {
-      opacity: 0.9,
-      duration: 1.5,
-      repeat: 2
+      opacity: 1,
+      duration: 1.3,
     });
-    tl.to(intro, {
+    tl.to(loading, {
+      opacity: 0,
+      duration: 0.7,
+    });
+
+    gsap.to(intro, {
       top: 0,
       height: 0,
-      duration: 0.8,
+      duration: 0.6,
       ease: 'power2',
+      delay: 6,
       onComplete: () => {
         intro.style.display = 'none'
       }

@@ -42,26 +42,27 @@ function RadioCategory() {
       }
     }
 
-    if(!hasSession.isSet){
-      (async function(){
-        const hasSession = await setFirebase(`Categories ${a}`)
-        if(!hasSession){
-          setSessionData({ isSet: true, session: true })
-        } else {
-          setSessionData({ isSet: true})
-        }
+    if(radiodata.data.continents !== undefined) {
+      const selData = findData(a, radiodata.data.categories)
+      if(a !== data.categories) {
+        setData({
+          isSet: true,
+          data: selData,
+          categories: a
+        })
 
-        if(radiodata.data.continents !== undefined) {
-          const selData = findData(a, radiodata.data.categories)
-          if(a !== data.categories) {
-            setData({
-              isSet: true,
-              data: selData,
-              categories: a
-            })
-          }
+        // check if there is a session to set the intro
+        if(!hasSession.isSet){
+          (async function(){
+            const hasSession = await setFirebase(`Categories ${a}`)
+            if(!hasSession){
+              setSessionData({ isSet: true, session: true })
+            } else {
+              setSessionData({ isSet: true})
+            }
+          })()
         }
-      })()
+      }
     }
   })
 

@@ -8,6 +8,7 @@ import footerData from '../utils/data/footerdata.json'
 function Listen(data) {
   let ext;
   const radio = data.data[0]
+  console.log(radio)
   if(radio === undefined) {
     ext = 'nodata'
   } else {

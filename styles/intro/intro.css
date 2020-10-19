@@ -24,7 +24,23 @@
 
 .intro .copy-right {
   margin-bottom: 20px;
-  font-size: 0.8em;
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px){
+  .intro img {
+    width: 158px;
+    height: auto;
+  }
+  .intro span {
+    font-size: 0.9em;
+  }
+  .intro .loading {
+    font-size: 0.75em;
+  }
+  .intro .copy-right {
+    font-size: 0.85em;
+  }
 }
 
 @media (max-width: 468px){
@@ -33,9 +49,12 @@
     height: auto;
   }
   .intro span {
-    font-size: 0.8em;
+    font-size: 0.88em;
   }
   .intro .loading {
-    font-size: 0.75em;
+    font-size: 0.73em;
+  }
+  .intro .copy-right {
+    font-size: 0.82em;
   }
 }

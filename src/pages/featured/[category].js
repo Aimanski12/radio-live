@@ -36,31 +36,31 @@ function Featured() {
 
   useEffect(() => {
     const a = window.location.pathname.split('/')[2].split('-').join(' ')
-
-    if(!hasSession.isSet){
-      (async function(){
-        const hasSession = await setFirebase(`Featured ${a}`)
-        if(!hasSession){
-          setSessionData({ isSet: true, session: true })
-        } else {
-          setSessionData({ isSet: true})
-        }
-        
     
-        // check if the query matched the continent list
-        if(radiodata.isSet){
-          if(!checkIfExists(a, radiodata.data.topMenu)) {
-            router.replace('/404', window.location.pathname)
-          }
+    // check if the query matched the continent list
+    if(radiodata.isSet){
+      if(!checkIfExists(a, radiodata.data.topMenu)) {
+        router.replace('/404', window.location.pathname)
+      }
+    }
+    
+    if(radiodata.data.topMenu !== undefined) {
+      const selData = findData(a, radiodata.data.topMenu)
+      if(a !== data.categories) {
+        setData({ isSet: true, data: selData, categories: a })
+        
+        // check the session to set the animation
+        if(!hasSession.isSet){
+          (async function(){
+            const hasSession = await setFirebase(`Featured ${a}`)
+            if(!hasSession){
+              setSessionData({ isSet: true, session: true })
+            } else {
+              setSessionData({ isSet: true})
+            }
+          })()
         }
-
-        if(radiodata.data.topMenu !== undefined) {
-          const selData = findData(a, radiodata.data.topMenu)
-          if(a !== data.categories) {
-            setData({ isSet: true, data: selData, categories: a })
-          }
-        }
-      })()
+      }
     }
   })
 

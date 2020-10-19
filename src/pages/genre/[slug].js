@@ -47,31 +47,30 @@ function Genre() {
       }
     }
     
-    if(!hasSession.isSet){
-        // get the radio station and put to the state
-      (async function () {
-          
-        const hasSession = await setFirebase('Genre')
-        if(!hasSession){
-          setSessionData({ isSet: true, session: true })
-        } else {
-          setSessionData({ isSet: true})
-        }
-
-
-        let genre = sortByVote(await getData('genre', a))
-        if(radiogenre.page !== a){
-          setGenre({
-            isSet: true,
-            page: a,
-            textHeader: setName(a),
-            lists: genre,
+    // get the radio station and put to the state
+    (async function () {
+      
+      let genre = sortByVote(await getData('genre', a))
+      if(radiogenre.page !== a){
+        setGenre({
+          isSet: true,
+          page: a,
+          textHeader: setName(a),
+          lists: genre,
             totalpages: Math.ceil(genre.length / 21),
             radios: sliceData(1, genre)
           })
+          
+        // check the session to set the animation
+        if(!hasSession.isSet){
+          if(!hasSession){
+            setSessionData({ isSet: true, session: true })
+          } else {
+            setSessionData({ isSet: true})
+          }
         }
-      })()
-    }
+      }
+    })()
   })
 
   function getNewData(val) {

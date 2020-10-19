@@ -1,12 +1,12 @@
 [
   {
-    "favicon": "https://www.rastapuls.com/apple-touch-icon.png",
-    "homepage": "https://www.rastapuls.com",
+    "favicon": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Franceinfo.svg/330px-Franceinfo.svg.png",
+    "homepage": "https://www.francetvinfo.fr/",
     "country": "France",
-    "state": "France",
-    "url": "https://radio.rastapuls.com/rastapuls",
-    "url_resolved": "https://radio.rastapuls.com/rastapuls",
-    "name": "Rastapuls Reggae Station"
+    "state": "",
+    "url": "http://direct.franceinfo.fr/live/franceinfo-midfi.mp3",
+    "url_resolved": "http://icecast.radiofrance.fr/franceinfo-midfi.mp3",
+    "name": "France Info"
   },
   {
     "favicon": "http://www.rac1.cat/rsc/images/logo.jpg",

@@ -35,34 +35,39 @@ function Country() {
   
   useEffect(() => {
     const a = window.location.pathname.split('/')[2].split('-').join(' ')
-
-    if(!hasSession.isSet){
-      (async function(){
-        const hasSession = await setFirebase(`Continents ${a}`)
-        if(!hasSession){
-          setSessionData({ isSet: true, session: true })
-        } else {
-          setSessionData({ isSet: true})
-        }
     
-        // check if the query matched the continent list
-        if(radiodata.isSet){
-          if(!checkIfExists(a, radiodata.data.continents)) {
-            router.replace('/404', window.location.pathname)
-          }
-        }
-        if(radiodata.data.continents !== undefined) {
-          const selData = findData(a, radiodata.data.continents)
-          if(a !== data.continent) {
-            setData({
-              isSet: true,
-              data: selData,
-              continent: a
-            })
-          }
-        }
-      })()
+    // check if the query matched the continent list
+    if(radiodata.isSet){
+      if(!checkIfExists(a, radiodata.data.continents)) {
+        router.replace('/404', window.location.pathname)
+      }
     }
+    
+    if(radiodata.data.continents !== undefined) {
+      const selData = findData(a, radiodata.data.continents)
+      if(a !== data.continent) {
+        setData({
+          isSet: true,
+          data: selData,
+          continent: a
+        })
+        
+        // check the session to set the animation
+        if(!hasSession.isSet){
+          (async function(){
+            const hasSession = await setFirebase(`Continents ${a}`)
+            if(!hasSession){
+              setSessionData({ isSet: true, session: true })
+            } else {
+              setSessionData({ isSet: true})
+            }
+            
+          })()
+        }
+      }
+    }
+    
+
   })
   return (
     <div className='content-center main-container'>
