@@ -9,9 +9,7 @@
 ### screen shot
 
 <div float="left">
-  <a href="https://youtu.be/gOpke_Eoiac">
-    <img src="https://github.com/Aimanski12/proj-resource/blob/master/libs/react/react26-radio-live.gif" alt="screen shot">
-  </a>
+  <img src="https://github.com/Aimanski12/proj-resource/blob/master/libs/react/react26-radio-live.gif" alt="screen shot">
 </div>
 
 > Things I learned in this project;
