@@ -6,6 +6,8 @@
 
 [View it live from your browser.](https://radio-live.vercel.app)<br>
 
+### screen shot
+
 <div float="left">
   <a href="https://youtu.be/gOpke_Eoiac">
     <img src="https://github.com/Aimanski12/proj-resource/blob/master/libs/react/react26-radio-live.gif" alt="screen shot">
