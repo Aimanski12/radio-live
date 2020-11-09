@@ -4,13 +4,15 @@
 
 > One note that I would like to stress out in this project is that, FM Radio websites steams their music on different audio formats. Some follows the web standards while others are still using the old audio formats which may or may not work on the users machine. 
 
-[View it live from your browser.](https://radio-live.vercel.app)<br>
+View this from your browser [live](https://radio-live.vercel.app).<br><br>
+View UX/UI design on [Behance](https://www.behance.net/gallery/105665555/Radio-Live).<br>
+
 
 ### screen shot
 
 <div float="left">
   <img src="https://github.com/Aimanski12/proj-resource/blob/master/libs/react/react26-radio-live.gif" alt="screen shot">
-</div>
+</div><br><br>
 
 > Things I learned in this project;
   * How to serve audio files on the browser. 
