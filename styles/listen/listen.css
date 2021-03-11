@@ -5,8 +5,8 @@
 }
 
 .r-wrapper {
-  width: 310px;
-  height: 480px;
+  width: 100%;
+  height: 100vh;
   background: linear-gradient(180deg, #7A212F 0%, #CA3243 100%);
 }
 

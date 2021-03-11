@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import Link from 'next/link'
+
 import {urlFormatTxt} from '../../../utils/common/helpers'
 import {RadioAppData} from '../../../utils/contextapi/context'
   
@@ -8,7 +9,7 @@ function TopMenu() {
   const topMenu = radiodata.isSet ? radiodata.data.topMenu.map((cat, i) => {
     return (
       <Link key={i}
-        href='/featured/[category]'
+        href='/featured/[featured]'
         as={`/featured/${urlFormatTxt(cat.name)}`}>
           <a>
             <li className='content-center top-menu-item text-3'>

@@ -21,20 +21,23 @@ function RadioCategory() {
     categories: '',
     data: {}
   })
+  
   const [hasSession, setSessionData] = useState({
     isSet: false,
     session: false
   })
   const {radiodata, setradiodata} = useContext(RadioAppData)
-  if (!radiodata.isSet) {
-    (async function () {
-      let data = await getData('home')
-      setradiodata(data)
-    })()
-  }
   
   useEffect(() => {
     const a = window.location.pathname.split('/')[2].split('-').join(' ')
+    
+    if (!radiodata.isSet) {
+      (async function () {
+        let data = await getData('home')
+        setradiodata(data)
+      })()
+    }
+
     // check if the query matched the continent list
     if(radiodata.isSet){
       if(!checkIfExists(a, radiodata.data.categories)) {
@@ -64,7 +67,9 @@ function RadioCategory() {
         }
       }
     }
-  })
+  }, [])
+
+
 
   return (
     <div className='content-center main-container'>

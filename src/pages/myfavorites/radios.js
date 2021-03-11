@@ -23,14 +23,16 @@ function MyFavorites() {
     radios: {}
   })
   const {radiodata, setradiodata} = useContext(RadioAppData)
-  if (!radiodata.isSet) {
-    (async function () {
-      let data = await getData('home')
-      setradiodata(data)
-    })()
-  }
-
+  
   useEffect(() => {
+    
+    if (!radiodata.isSet) {
+      (async function () {
+        let data = await getData('home')
+        setradiodata(data)
+      })()
+    }
+
     if(!hasSession.isSet){
       (async function(){
         const hasSession = await setFirebase('Favorites')
@@ -55,7 +57,7 @@ function MyFavorites() {
 
       })()
     }
-  })
+  }, [])
 
   function getNewData(val) {
     const newSet = sliceData(val, data.radios)

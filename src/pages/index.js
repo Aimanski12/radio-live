@@ -19,11 +19,12 @@ export default function Home({data}) {
     session: false
   })
   const {radiodata, setradiodata} = useContext(RadioAppData)
-  if(!radiodata.isSet) {
-    setradiodata(data)
-  }
-
+  
   useEffect(() => {
+    if(!radiodata.isSet) {
+      setradiodata(data)
+    }
+
     if(!hasSession.isSet){
       (async function(){
         const hasSession = await setFirebase('Home')
@@ -34,7 +35,7 @@ export default function Home({data}) {
         }
       })()
     }
-  })
+  }, [])
 
   return (
     <div className='content-center main-container'>
@@ -43,7 +44,6 @@ export default function Home({data}) {
         <link rel="icon" href="/images/logo.ico" />
         <Meta />
       </Head>
-
       { hasSession.isSet ? (
         <>
           { hasSession.session ? <Intro/> : null }

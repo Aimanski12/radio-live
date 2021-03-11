@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {RadioAppData} from '../utils/contextapi/context'
 import Meta from '../components/Meta/Meta'
 import Head from 'next/head'
@@ -12,12 +12,14 @@ import {getData} from '../utils/apis/api'
 
 export default function NotFound() {
   const {radiodata, setradiodata} = useContext(RadioAppData)
-  if(!radiodata.isSet) {
-    (async function () {
-      let data = await getData('home')
-      setradiodata(data)
-    })() 
-  }
+  useEffect(() => {
+    if(!radiodata.isSet) {
+      (async function () {
+        let data = await getData('home')
+        setradiodata(data)
+      })() 
+    }
+  }, [])
 
   return (
     <div className='content-center main-container'>

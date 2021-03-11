@@ -1,24 +1,23 @@
 import React, {useContext, useEffect} from 'react'
+import Head from 'next/head'
 import {useRouter} from 'next/router'
 
 import {checkIfExists} from '../../utils/common/helpers'
 import {getData} from '../../utils/apis/api'
 import {RadioAppData} from '../../utils/contextapi/context'
 
-import Countries from '../../components/Dashboard/Countries/Countries'
 import Categories from '../../components/Dashboard/Categories/Categories'
+import FeaturedRadio from '../../components/Dashboard/Featured/Featured'
 import Footer from '../../components/Footer/Footer'
-import Head from 'next/head'
 import Meta from '../../components/Meta/Meta'
 import SideBar from '../../components/SideNavbar/SideBar'
 import TopMenu from '../../components/Dashboard/TopMenu/TopMenu'
 import TopNavBar from '../../components/TopNavBar/TopNavBar'
 
-
-function Country() {
-  let selected;
-  const {radiodata, setradiodata} = useContext(RadioAppData)
+function Featured() {
   const router = useRouter()
+  const {radiodata, setradiodata} = useContext(RadioAppData)
+  let selected;
 
   useEffect(() => {
     // preset data if context data is empty
@@ -31,19 +30,19 @@ function Country() {
   }, [])
 
   // assign query value
-  const query = router.query.countries
+  const query = router.query.featured
 
-  if(radiodata.isSet) {
+  if (radiodata.isSet) {
     // check if the query value is valid
-    const queryExists = checkIfExists(query, radiodata.data.continents)
-      
-    if(queryExists) {
+    const queryExists = checkIfExists(query, radiodata.data.topMenu)
+
+    if (queryExists) {
       const filteredQuery = query.split('-').join(' ')
-      const lists = radiodata.data.continents.filter(continent => {
-        return continent.name.toLowerCase() === filteredQuery
+      const lists = radiodata.data.topMenu.filter(menu => {
+        return menu.name.toLowerCase() === filteredQuery
       })
-      // assign selected to the selected continent
-      selected = lists
+      // // assign selected to the selected continent
+      selected = lists[0]
 
       // redirect page if query value is invalid
     } else router.replace('/404', window.location.pathname)
@@ -52,7 +51,7 @@ function Country() {
   return (
     <div className='content-center main-container'>
       <Head>
-        <title>Radio Live | Continents</title>
+        <title>Radio Live | Featured Stations</title>
         <link rel="icon" href="/images/logo.ico" />
         <Meta />
       </Head>
@@ -60,17 +59,16 @@ function Country() {
           <TopNavBar />
           <div className="content-wrapper">
             <SideBar/>
-            
             <div className='dashboard-container'>
               <TopMenu />
-              { selected && <Countries data={selected[0]}/> }
+              { selected && <FeaturedRadio data={selected}/>}
               <Categories />
             </div>
           </div>
           <Footer />
-      </main>
+        </main>
     </div>
   )
 }
 
-export default Country
+export default Featured

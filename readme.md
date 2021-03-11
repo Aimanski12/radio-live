@@ -2,7 +2,7 @@
 
 > Listening to music while I study makes me focus on things at hand. I always listen to different radio stations all over the world. So, I took a challenge to build a website that allows the user to listen to any FM Radio stations all over the world. 
 
-> One note that I would like to stress out in this project is that, FM Radio websites steams their music on different audio formats. Some follows the web standards while others are still using the old audio formats which may or may not work on the users machine. 
+> One note that I would like to stress out in this project is that, FM Radio websites streams their live music on different audio formats. Some follows the web standards while others are still using the old audio formats which may or may not work on the users machine. 
 
 View this from your browser [live](https://radio-live.vercel.app).<br><br>
 View UX/UI design on [Behance](https://www.behance.net/gallery/105665555/Radio-Live).<br>

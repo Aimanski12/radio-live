@@ -9,10 +9,12 @@ export function RadioDataContext (props) {
   })
 
   function setradiodata (val) {
-    setRadio({
-      isSet: true,
-      data: {...val}
-    })
+    if(!radiodata.isSet) {
+      setRadio({
+        isSet: true,
+        data: {...val}
+      })
+    }
   }
 
   return (

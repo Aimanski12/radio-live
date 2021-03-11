@@ -30,16 +30,17 @@ function Genre() {
     radios: {}
   })
 
-  if (!radiodata.isSet) {
-    (async function () {
-      let data = await getData('home')
-      setradiodata(data)
-    })()
-  }
   
   useEffect(() => {
     const a = window.location.pathname.split('/')[2].split('-').join(' ')
     
+    if (!radiodata.isSet) {
+      (async function () {
+        let data = await getData('home')
+        setradiodata(data)
+      })()
+    }
+
     // check if the query matched the continent list
     if(radiodata.isSet){
       if(!checkIfExists(a, radiodata.data.genre[0].lists)) {
@@ -71,7 +72,7 @@ function Genre() {
         }
       }
     })()
-  })
+  }, [])
 
   function getNewData(val) {
     const newSet = sliceData(val, radiogenre.lists)

@@ -26,10 +26,11 @@ function animEl (el, name) {
 
 // function that will add the numbers of all stations
 export function getTotal(lists) {
+  const newList = lists.filter(list => list !== null)
   var sum = 0;
-  for (let a in lists) {
-    if (lists.hasOwnProperty(a)) {
-      sum += lists[a].stationcount;
+  for (let a in newList) {
+    if (newList.hasOwnProperty(a)) {
+      sum += newList[a].stationcount;
     }
   }
   return formtNum(sum);
@@ -84,11 +85,12 @@ export const setName = (name) => {
   return b.join(' ')
 }
 
+
 // function used to check is the url query parameter
 // is in the listed data
 export function checkIfExists(query, lists) {
   return lists.some(list => {
-    return setName(list.name) === setName(query)
+    return setName(list.name.toLowerCase()) === setName(query.split('-').join(' '))
   })
 }
 
@@ -102,8 +104,9 @@ export function checkUrlValues (query, lists) {
 // function to sort the data from the array of objects
 // used in continents, genre,  categories and top menu
 export function findData(url, data) {
+  const urlname = url.split('-').join(' ')
   let a = data.filter(a => {
-    return setName(a.name) === setName(url)
+    return setName(a.name) === setName(urlname)
   })
   return a[0]
 }

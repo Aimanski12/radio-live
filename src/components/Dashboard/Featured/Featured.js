@@ -3,21 +3,22 @@ import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 
-function Countries(props) {
+function Countries({data}) {
   const router = useRouter()
-  const category = router.query.category
+  const url = router.query.featured
 
   function setCountries() {
-    return props.data.lists.map((b, i) => {
+    return data.lists.map((b, i) => {
       return (
         <Link key={i}
-          href='/featured/[category]/[slug]'
-          as={`/featured/${urlFormatTxt(category)}/${urlFormatTxt(b.name)}`}>
+          href='/featured/[featured]/[slug]'
+          as={`/featured/${urlFormatTxt(url)}/${urlFormatTxt(b.name)}`}
+          >
           <a>
             <div className="country-item">
               <div className="country-item-wrapper">
                 <div className="content-center country-img-wrapper">
-                  <img src={`/images/${props.data.name}.svg`} alt=""/>
+                  <img src={`/images/${data.name}.svg`} alt=""/>
                 </div>
                 <div className="content-center country-name">
                   <h2 className='text-2 font-1'>{b.name}</h2>
@@ -37,10 +38,10 @@ function Countries(props) {
   return (
     <div className="country-wrapper">
       <div className='content-center menu-header text-3'>
-        <span className='font-2'>{props.data.name}</span>
+        <span className='font-2'>{data.name}</span>
         <span>
           <i className='font-2 totalStations'>
-            {getTotal(props.data.lists)} Stations</i>
+            {getTotal(data.lists)} Stations</i>
         </span>
       </div>
       <div className="country-list-wrapper">

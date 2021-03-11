@@ -3,8 +3,8 @@ import {useRouter} from 'next/router'
 import Head from 'next/head'
 
 import {RadioAppData} from '../../../utils/contextapi/context'
+import {checkIfExists, findData, sortByVote, setName, sliceData} from '../../../utils/common/helpers'
 import {getData} from '../../../utils/apis/api'
-import {checkIfExists, findData, setName, sliceData, sortByVote} from '../../../utils/common/helpers'
 
 import Categories from '../../../components/Dashboard/Categories/Categories'
 import Footer from '../../../components/Footer/Footer'
@@ -14,18 +14,18 @@ import SideBar from '../../../components/SideNavbar/SideBar'
 import TopMenu from '../../../components/Dashboard/TopMenu/TopMenu'
 import TopNavBar from '../../../components/TopNavBar/TopNavBar'
 
-function CountryRadio() {
+function FeaturedRadio() {
   const router = useRouter()
   const {radiodata, setradiodata} = useContext(RadioAppData)
-  const [radioCountry, setCountry] = useState({
+
+  const [featuredradio, setFeaturedGenre] = useState({
     isSet: false,
-    lists: {}, 
     page: '',
-    radios: {},
     textHeader: '',
+    lists: {},
     totalpages: 0,
+    radios: {}
   })
-  
 
   useEffect(() => {
     // preset the data if empty
@@ -42,26 +42,28 @@ function CountryRadio() {
     router.replace('/404', window.location.pathname)
   }
 
-  const continent = router.query.countries
-  const country = router.query.slug
-  
-  if(radiodata.isSet) {
-    // check if continent query is a valid value
-    const isValidCont = checkIfExists(continent, radiodata.data.continents)
-    if(isValidCont) {
-      // find the group of data from the continents query
-      const continentLists = findData(continent, radiodata.data.continents)
-      // check if the country value is a valid value
-      const isValidCountry = checkIfExists(country, continentLists.lists)
-      if(isValidCountry) {
+  const featured = router.query.featured
+  const selection = router.query.slug
+
+  if (radiodata.isSet) {
+    // check if featured query is a valid value
+    const isValid = checkIfExists(featured, radiodata.data.topMenu)
+    if (isValid) {
+      // find the group of data from the featured query
+      const featuredLists = findData(featured, radiodata.data.topMenu)
+      // check if the featured value is a valid value
+      const isValidSelection = checkIfExists(selection, featuredLists.lists)
+      if (isValidSelection) {
         (async function () {
+          // format text to a non hyphenated text
+          const a = selection.split('-').join(' ')
           // query data and sort data according to its popularity
-          let stations = sortByVote(await getData('country', country))
-          if(!radioCountry.isSet) {
-            setCountry({
+          let stations = sortByVote(await getData('genre', a))
+          if (!featuredradio.isSet) {
+            setFeaturedGenre({
               isSet: true,
-              page: country,
-              textHeader: setName(country),
+              page: selection,
+              textHeader: setName(selection),
               lists: stations,
               totalpages: Math.ceil(stations.length / 21),
               radios: sliceData(1, stations)
@@ -74,12 +76,10 @@ function CountryRadio() {
     } else { notfound() }
   }
 
-
-  // function for setting the pagination
-  function getNewData(val) {
-    const newSet = sliceData(val, radioCountry.lists)
-    setCountry({
-      ...radioCountry,
+  const getNewData = (val) => {
+    const newSet = sliceData(val, featuredradio.lists)
+    setFeaturedGenre({
+      ...featuredradio,
       radios: newSet
     })
   }
@@ -87,7 +87,7 @@ function CountryRadio() {
   return (
     <div className='content-center main-container'>
       <Head>
-        <title>{`Radio Live | Country Stations`}</title>
+        <title>{`Radio Live | Featured Radio`}</title>
         <link rel="icon" href="/images/logo.ico" />
         <Meta />
       </Head>
@@ -97,15 +97,15 @@ function CountryRadio() {
           <SideBar/>
           <div className='dashboard-container'>
             <TopMenu />
-            { radioCountry.isSet ? 
+            { featuredradio.isSet ? 
               <Radios 
                 likeBtn='like'
-                textHeader={radioCountry.textHeader}
+                textHeader={featuredradio.textHeader}
                 click={(val)=>getNewData(val)}
-                radios={radioCountry.radios}
-                total={radioCountry.lists.length}
-                totalpages={radioCountry.totalpages} /> : null }
-            { radioCountry.isSet ? <Categories /> : null }
+                radios={featuredradio.radios}
+                total={featuredradio.lists.length}
+                totalpages={featuredradio.totalpages} /> : null }
+            { featuredradio.isSet ? <Categories /> : null }
           </div>
         </div>
         <Footer />
@@ -114,4 +114,4 @@ function CountryRadio() {
   )
 }
 
-export default CountryRadio
+export default FeaturedRadio

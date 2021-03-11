@@ -9,7 +9,11 @@ import {sortData} from './helpers'
 export const home = async () => {
   const contData = await fetchData('/countries')
   const catData = await fetchData('/tags')
-  let continents = sortData(listOfCont.continents, contData, true)
+  let continents = removeEmpty(sortData(listOfCont.continents, contData, true))
+
+  
+
+
   let categories = sortData(listOfCat.categories, catData, false)
   let topMenu = sortData(top.topMenu, catData, false)
   let genre = sortData(genList.genlist, catData, false)
@@ -29,4 +33,15 @@ export const getByCountry = async (country) => {
 export const getStation = async (name) => {
   const station = await fetchData(`stations/search?name=${name}`)
   return station
+}
+
+
+const removeEmpty = (continents) => {
+  let c = continents.map(continent => {
+    return {
+      ...continent,
+      lists: continent.lists.filter(list => list !== undefined)
+    }
+  })
+  return c
 }
