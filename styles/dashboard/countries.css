@@ -1,44 +1,44 @@
 
 .country-wrapper {
-  width: 100%;
-  min-height: 770px;
-  margin: 5px 0;
-  overflow: auto;
   background: linear-gradient(101.25deg, #E06876 0%, #BA0D41 98.91%);
+  margin: 5px 0;
+  min-height: 770px;
+  overflow: auto;
+  width: 100%;
 }
 
 .country-wrapper .menu-header {
-  width: calc(100% - 5px);
   height: 50px;
-  padding-left: 5px;
   justify-content: space-between;
+  padding-left: 5px;
+  width: calc(100% - 5px);
 }
 
 .country-list-wrapper {
-  width: 100%;
   min-height: 100px;
+  width: 100%;
 }
 
 .country-item {
-  width: calc(33.33% - 6px);
-  padding: 0 3px;
-  margin-bottom: 5px;
   float: left;
   height: 65px;
+  margin-bottom: 5px;
+  padding: 0 3px;
+  width: calc(33.33% - 6px);
 }
 
 .country-item-wrapper {
-  width: 100%;
+  background: #802A37;
+  border-radius: 6px;
   height: 100%;
   overflow: auto;
-  border-radius: 6px;
   transition: all 0.1s ease-in;
-  background: #802A37;
+  width: 100%;
 }
 
 .country-item-wrapper:hover {
-  cursor: pointer;
   background: #993D4B;
+  cursor: pointer;
   transition: all 0.1s ease-in;
 }
 
@@ -48,49 +48,48 @@
 }
 
 .country-img-wrapper {
-  width: 70px;
-  height: 60px;
   float: left;
+  height: 60px;
+  width: 70px;
 }
 
 .country-img-wrapper img {
-  width: 40px;
   height: auto;
+  width: 40px;
 }
 
 .country-name {
-  float: left;
   align-items: flex-start;
+  float: left;
   height: 60px;
-  width: calc(100% - 75px);
   padding-left: 5px;
+  width: calc(100% - 75px);
 }
 
 .country-name h2 {
-  letter-spacing: -0.04em;
   color: #00DBE9;
-  text-decoration: none;
-  width: 230px;
+  letter-spacing: -0.04em;
   overflow: hidden;
-  white-space: nowrap;
+  text-decoration: none;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 230px;
 }
 
 .country-stations {
-  height: 13px;
-  width: 100%;
-  justify-content: space-between;
-  flex-direction: row;
   color: #FFC2C2;
+  flex-direction: row;
+  height: 13px;
   letter-spacing: -0.03em;
+  justify-content: space-between;
   text-decoration: none;
+  width: 100%;
 }
 
 .totals {
   color: #A8EEB7;
   padding-right: 15px;
 }
-
 
 @media (max-width: 1268px) {
   .country-name h2 {

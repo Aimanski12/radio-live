@@ -1,19 +1,19 @@
 
 .sidebar-menu {
-  width: 100%;
   min-height: 90px;
+  width: 100%;
 }
 
 .menu-header {
-  width: 100%;
   flex-direction: row;
-  margin-top: 5px;
   height: 40px;
+  margin-top: 5px;
+  width: 100%;
 }
 
 .menu-header img{
-  width: 28px;
   height: 28px;
+  width: 28px;
 }
 
 .no-results {
@@ -21,10 +21,10 @@
 }
 
 .menu-header span{
-  margin-left: 5px;
+  color: #F9E1E1;
   display: block;
   letter-spacing: -0.05em;
-  color: #F9E1E1;
+  margin-left: 5px;
 }
 
 .menu-items {
@@ -33,15 +33,15 @@
 }
 
 .menu-item {
-  padding: 0 20px;
-  flex-direction: row;
-  justify-content: space-between;
-  width: calc(100% - 40px);
-  color: #DBDBDB;
-  height: 48px;
-  margin-bottom: 1px;
   background: linear-gradient(90deg, #72122F 0%, #B74754 100%);
-  transition: all 0.15s ease-in
+  color: #DBDBDB;
+  flex-direction: row;
+  height: 48px;
+  justify-content: space-between;
+  margin-bottom: 1px;
+  padding: 0 20px;
+  transition: all 0.15s ease-in;
+  width: calc(100% - 40px);
 }
 
 .menu-item:hover {
@@ -65,32 +65,33 @@
 }
 
 .totalStations {
-  font-style: normal;
   color: #7AEE93;
+  font-style: normal;
   margin-right: 10px
 }
 
 .menu-name img{
-  margin-right: 3px;
   height: 30px;
+  margin-right: 3px;
   width: 30px;
 }
 
 .menu-station {
-  width: 50px;
+  background: #691D34;
   border-radius: 3px;
-  line-height: 25px;
-  height: 25px;
   color: #00DBE9;
+  height: 25px;
+  line-height: 25px;
   padding-right: 5px;
   text-align: right;
-  background: #691D34;
+  width: 50px;
+
 }
 
 @media (max-width: 868px) {
   .menu-item {
-    width: calc(100% - 20px);
-    padding: 0 10px;
     height: 45px;
+    padding: 0 10px;
+    width: calc(100% - 20px);
   }
 }

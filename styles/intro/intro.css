@@ -1,36 +1,36 @@
 .intro {
-  width: 100%;
+  background: #8B3251;
   justify-content: space-between;
   height: 100vh;
+  overflow: hidden;
   position: fixed;
   top:0;
+  width: 100%;
   z-index: 500;
-  background: #8B3251;
-  overflow: hidden;
 }
 
 .intro span {
   color: #F9C6C6;
   font-weight: 500;
-  letter-spacing: -0.08em;
   font-size: 0.95em;
+  letter-spacing: -0.08em;
 }
 
 .intro .loading {
-  margin-top: 10px;
   font-size: 0.8em;
+  margin-top: 10px;
   opacity: 0;
 }
 
 .intro .copy-right {
-  margin-bottom: 20px;
   font-size: 0.9em;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 768px){
   .intro img {
-    width: 158px;
     height: auto;
+    width: 158px;
   }
   .intro span {
     font-size: 0.9em;
@@ -45,8 +45,8 @@
 
 @media (max-width: 468px){
   .intro img {
-    width: 150px;
     height: auto;
+    width: 150px;
   }
   .intro span {
     font-size: 0.88em;

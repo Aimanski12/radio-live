@@ -1,23 +1,26 @@
 import React, {Fragment, useContext} from 'react'
 import Link from 'next/link'
+
+import {getTotal, showMenu, setName, urlFormatTxt} from '../../../utils/common/helpers'
 import {RadioAppData} from '../../../utils/contextapi/context'
-import {showMenu, getTotal, urlFormatTxt, setName} from '../../../utils/common/helpers'
 
 function Categories() {
   const {radiodata} = useContext(RadioAppData)
 
   const topMenu = radiodata.isSet ? radiodata.data.topMenu.map((cat, i) => {
     return (
-      <Link key={i}
+      <Link 
+        key={i}
         href='/featured/[slug]'
-        as={`/featured/${urlFormatTxt(cat.name)}`}>
+        as={`/featured/${urlFormatTxt(cat.name)}`} >
         <a>
           <li 
             onClick={()=>showMenu('right')}
             className='content-center menu-item text-3'>
             <span className='content-center menu-name font-5'>
-              <img src={`/images/${cat.name}.svg`} 
-                alt={`${setName(cat.name)} icon`}/>{cat.name}</span>
+              <img 
+                alt={`${setName(cat.name)} icon`} 
+                src={`/images/${cat.name}.svg`} />{cat.name}</span>
           </li>
         </a>
       </Link>
@@ -26,16 +29,18 @@ function Categories() {
 
   const categories = radiodata.isSet ? radiodata.data.categories.map((cat, i) => {
     return (
-      <Link key={i}
+      <Link   
+        as={`/categories/${urlFormatTxt(cat.name)}`}
         href='/categories/[slug]'
-        as={`/categories/${urlFormatTxt(cat.name)}`}>
+        key={i} >
         <a>
           <li 
             onClick={()=>showMenu('right')}
             className='content-center menu-item text-3'>
             <span className='content-center menu-name font-5'>
-              <img src={`/images/${cat.name}.svg`} 
-                alt={`${setName(cat.name)} icon`}/>{cat.name}</span>
+              <img 
+                alt={`${setName(cat.name)} icon`}
+                src={`/images/${cat.name}.svg`} />{cat.name}</span>
             <span className='menu-station font-8'>{getTotal(cat.lists)}</span>
           </li>
         </a>
@@ -49,8 +54,9 @@ function Categories() {
 
         <div className="content-center close-btn">
           <img 
-          onClick={()=>showMenu('right')}
-            src="/images/close.svg" alt="close icon"/>
+            alt="close icon" 
+            onClick={()=>showMenu('right')}
+            src="/images/close.svg" />
         </div>
 
         <div className="sidebar-menu">
@@ -63,7 +69,9 @@ function Categories() {
               onClick={()=>showMenu('right')}
               className='content-center menu-item text-3'>
               <span className='content-center menu-name font-5'>
-                <img src="/images/My Favorites.svg" alt=""/>
+                <img 
+                  alt="heart icon" 
+                  src="/images/My Favorites.svg" />
                 My Favorites
               </span>
             </li>

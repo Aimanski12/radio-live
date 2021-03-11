@@ -89,10 +89,10 @@ function Genre() {
             <TopMenu />
             { genreStation.isSet ? 
               <Radios 
-                likeBtn='like'
-                textHeader={genreStation.textHeader}
                 click={(val)=>getNewData(val)}
+                likeBtn='like'
                 radios={genreStation.radios}
+                textHeader={genreStation.textHeader}
                 total={genreStation.lists.length}
                 totalpages={genreStation.totalpages} /> : null }
             { genreStation.isSet ? <Categories /> : null }

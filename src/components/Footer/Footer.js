@@ -3,10 +3,16 @@ import footerData from '../../utils/data/footerdata.json'
 
 function Footer() {
   const icons = footerData.map((t, i) => {
-    return ( <a href={t.link}
+    return ( 
+    <a
+      href={t.link}
+      key={i}
       rel='noopener noreferrer'
-      target='_blank' key={i}>
-        <img src={`/images/${t.name}.svg`} alt={`${t.name} small icon`}/> </a> )
+      target='_blank' >
+        <img 
+          alt={`${t.name} small icon`}
+          src={`/images/${t.name}.svg`} /> 
+    </a> )
   })
   return (
     <footer className='content-center footer'>

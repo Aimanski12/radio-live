@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import Link from 'next/link'
+
 import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 import {RadioAppData} from '../../../utils/contextapi/context'
 
@@ -8,13 +9,16 @@ function Categories() {
 
   const categories = radiodata.isSet ? radiodata.data.categories.map((cat, i) => {
     return (
-      <Link key={i}
+      <Link 
+        as={`/categories/${urlFormatTxt(cat.name)}`}
         href='/categories/[category]'
-        as={`/categories/${urlFormatTxt(cat.name)}`}>
+        key={i}>
         <a>
           <li className='content-center category-item text-3'>
             <span className='content-center category-name font-5'>
-              <img src={`/images/${cat.name}.svg`} alt=""/>{cat.name}
+              <img 
+                alt=""
+                src={`/images/${cat.name}.svg`} />{cat.name}
             </span>
             <span className='category-station font-8'>{getTotal(cat.lists)}</span>
           </li>

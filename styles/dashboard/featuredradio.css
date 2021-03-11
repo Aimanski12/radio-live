@@ -1,70 +1,70 @@
 
 .featured-radio {
-  width: 100%;
+  background: linear-gradient(101.25deg, #E06876 0%, #BA0D41 98.91%);
   min-height: 770px;
   margin: 5px 0;
   overflow: auto;
-  background: linear-gradient(101.25deg, #E06876 0%, #BA0D41 98.91%);
+  width: 100%;
 }
 
 .featured-radio .menu-header {
-  width: calc(100% - 5px);
   height: 50px;
-  padding-left: 5px;
   justify-content: space-between;
+  padding-left: 5px;
+  width: calc(100% - 5px);
 }
 
 .radio-wrapper {
+  min-height: 100px;
   overflow: auto;
   width: 100%;
-  min-height: 100px;
 }
 
 .radio-item {
-  width: calc(33.33% - 6px);
-  padding: 0 3px;
-  margin-bottom: 5px;
   float: left;
   height: 100px;
+  margin-bottom: 5px;
+  padding: 0 3px;
+  width: calc(33.33% - 6px);
 }
 
 .radio-item-wrapper {
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
   background: linear-gradient(232.8deg, #CD384E -4.17%, #802A37 41.73%);
+  border-radius: 6px;
+  height: 100%;
+  width: 100%;
 }
 
 .radio-img-wrapper {
-  width: 70px;
-  height: 60px;
   float: left;
+  height: 60px;
+  width: 70px;
 }
 
 .radio-img-wrapper img {
-  width: 45px;
-  height: auto;
   border-radius: 2px;
+  height: auto;
+  width: 45px;
 }
 
 .radio-name {
-  float: left;
   align-items: flex-start;
+  float: left;
   height: 60px;
   width: calc(100% - 70px);
 }
 
 .radio-name a {
+  padding-left: 5px;
   text-decoration: none;
-  padding-left: 5px
 }
 
 .radio-name a h2 {
-  letter-spacing: -0.04em;
   color: #00DBE9;
-  width: 230px;
+  letter-spacing: -0.04em;
   overflow: hidden;
   white-space: nowrap;
+  width: 230px;
   text-overflow: ellipsis;
 }
 
@@ -78,25 +78,25 @@
 }
 
 .location {
+  color: #FFC2C2;
   flex-direction: row;
-  color: #FFC2C2
 }
 
 .location span {
-  width: 210px;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 210px;
 }
 
 
 .radio-listen {
-  width: 100%;
-  height: 35px;
-  padding-bottom: 5px;
-  flex-direction: row;
-  border-radius: 0 0 6px 6px;
-  justify-content: space-between;
   background: #A1525F;
+  border-radius: 0 0 6px 6px;
+  flex-direction: row;
+  height: 35px;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  width: 100%;
 }
 
 .listen-btn-wrapper {
@@ -112,16 +112,16 @@
 }
 
 .listen-btn-wrapper img {
-  width: 34px;
   height: 34px;
   transition: all 0.15s ease-in;
+  width: 34px;
 }
 
 .like img {
-  margin-top: 5px;
-  width: 37px;
   height: 37px;
+  margin-top: 5px;
   padding-right: 10px;
+  width: 37px;
 }
 
 .like img:hover, .listen-btn-wrapper:hover {

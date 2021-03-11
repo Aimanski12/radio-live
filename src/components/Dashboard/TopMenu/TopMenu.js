@@ -8,12 +8,15 @@ function TopMenu() {
   const {radiodata} = useContext(RadioAppData)
   const topMenu = radiodata.isSet ? radiodata.data.topMenu.map((cat, i) => {
     return (
-      <Link key={i}
+      <Link 
+        as={`/featured/${urlFormatTxt(cat.name)}`}
         href='/featured/[featured]'
-        as={`/featured/${urlFormatTxt(cat.name)}`}>
+        key={i} >
           <a>
             <li className='content-center top-menu-item text-3'>
-              <img src={`/images/${cat.name}.svg`} alt=""/>
+              <img 
+                alt='featured icon'
+                src={`/images/${cat.name}.svg`} />
               <span className='font-5'>{cat.name}</span>
             </li>
           </a>

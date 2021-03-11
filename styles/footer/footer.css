@@ -1,16 +1,16 @@
 
 .footer {
-  margin-top: 10px;
-  width: calc(100% - 12px);
-  height: 75px;
   background: linear-gradient(90deg, #72122F 0%, #B74754 100%);
   flex-direction: row;
+  height: 75px;
   justify-content: space-between;
+  margin-top: 10px;
+  width: calc(100% - 12px);
 }
 
 footer span {
-  display: inline-block;
   color: #FFD0D0;
+  display: inline-block;
   font-weight: 600;
 }
 
@@ -24,25 +24,25 @@ footer span:last-child {
 
 .footer-icons {
   flex-direction: row;
+  height: 100%;
   justify-content: space-between;
   width: 250px;
-  height: 100%;
 }
 
 .footer-icons a{
-  width: 35px;
   height: 35px;
+  width: 35px;
 } 
 
 .footer-icons img{
-  width: 35px;
   height: auto;
   transition: all 0.15s ease-in;
+  width: 35px;
 }
 
 .footer-icons img:hover {
-  opacity: 0.8;
   cursor: pointer;
+  opacity: 0.8;
   transition: all 0.15s ease-in;
 }
 
@@ -85,9 +85,9 @@ footer span:last-child {
 
 @media (max-width: 768px) {
   .footer {
-    height: 180px;
     flex-direction: column;
     justify-content: center;
+    height: 180px;
   }
   footer span:first-child {
     margin-left: 0;

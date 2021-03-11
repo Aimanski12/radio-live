@@ -11,17 +11,17 @@ function PageNum(props) {
   return (
     <div className='pagination-display'>
       <ReactPaginate
-        pageCount={props.totalpages}
-        previousLabel={"prev"}
-        nextLabel={"next"}
-        breakLabel={"..."}
+        activeClassName={"active"} 
         breakClassName={"break-me"}
-        marginPagesDisplayed={1}
-        pageRangeDisplayed={2}
-        onPageChange={(e)=>handlePageClick(e)}
+        breakLabel={"..."}
         containerClassName={"pagination"}
-        subContainerClassName={"pages pagination"}
-        activeClassName={"active"} />
+        marginPagesDisplayed={1}
+        nextLabel={"next"}
+        onPageChange={(e)=>handlePageClick(e)}
+        pageCount={props.totalpages}
+        pageRangeDisplayed={2}
+        previousLabel={"prev"}
+        subContainerClassName={"pages pagination"} />
     </div>
   )
 }

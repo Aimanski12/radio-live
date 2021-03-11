@@ -1,11 +1,12 @@
 import React from 'react'
-import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 import Link from 'next/link'
+
+import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 import {useRouter} from 'next/router'
 
 function Countries(props) {
-  const router = useRouter()
   const category = router.query.category
+  const router = useRouter()
 
   function setCountries() {
     return props.data.lists.map((b, i) => {
@@ -17,7 +18,9 @@ function Countries(props) {
             <div className="country-item">
               <div className="country-item-wrapper">
                 <div className="content-center country-img-wrapper">
-                  <img src={`/images/${props.data.name}.svg`} alt=""/>
+                  <img 
+                    alt={`${props.data.name} icon`}
+                    src={`/images/${props.data.name}.svg`} />
                 </div>
                 <div className="content-center country-name">
                   <h2 className='text-2 font-1'>{b.name}</h2>

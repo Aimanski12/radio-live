@@ -3,7 +3,7 @@ import {useRouter} from 'next/router'
 import Head from 'next/head'
 
 import {RadioAppData} from '../../../utils/contextapi/context'
-import {checkIfExists, findData, formatText, sortByVote, setName, sliceData} from '../../../utils/common/helpers'
+import {checkIfExists, findData, formatText, sortByVote, sliceData} from '../../../utils/common/helpers'
 import {getData} from '../../../utils/apis/api'
 
 import Categories from '../../../components/Dashboard/Categories/Categories'
@@ -97,10 +97,10 @@ function FeaturedRadio() {
             <TopMenu />
             { featuredradio.isSet ? 
               <Radios 
-                likeBtn='like'
-                textHeader={featuredradio.textHeader}
                 click={(val)=>getNewData(val)}
+                likeBtn='like'
                 radios={featuredradio.radios}
+                textHeader={featuredradio.textHeader}
                 total={featuredradio.lists.length}
                 totalpages={featuredradio.totalpages} /> : null }
             { featuredradio.isSet ? <Categories /> : null }

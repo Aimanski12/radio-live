@@ -24,8 +24,8 @@ function CategoryRadio() {
     page: '',
     textHeader: '',
     lists: {}, 
+    radios: {},
     totalpages: 0,
-    radios: {}
   })
 
   useEffect(() => {
@@ -61,11 +61,11 @@ function CategoryRadio() {
           if (!categories.isSet) {
             setCategories({
               isSet: true,
-              page: selCategory,
-              textHeader: formatText(selCategory),
               lists: stations,
+              page: selCategory,
+              radios: sliceData(1, stations),
+              textHeader: formatText(selCategory),
               totalpages: Math.ceil(stations.length / 21),
-              radios: sliceData(1, stations)
             })
           }
         })()
@@ -102,12 +102,12 @@ function CategoryRadio() {
             <TopMenu />
             { categories.isSet &&
               <Radios 
-                likeBtn='like'
-                textHeader={categories.textHeader}
                 click={(val)=>getNewData(val)}
+                likeBtn='like'
                 radios={categories.radios}
+                textHeader={categories.textHeader}
                 total={categories.lists.length}
-                totalpages={categories.totalpages} />}
+                totalpages={categories.totalpages} /> }
             { categories.isSet && <Categories />}
           </div>
         </div>

@@ -1,7 +1,8 @@
 import React from 'react'
-import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+
+import {getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 
 function Countries({data}) {
   const router = useRouter()
@@ -10,10 +11,10 @@ function Countries({data}) {
   function setCountries() {
     return data.lists.map((b, i) => {
       return (
-        <Link key={i}
-          href='/featured/[featured]/[slug]'
+        <Link 
           as={`/featured/${urlFormatTxt(url)}/${urlFormatTxt(b.name)}`}
-          >
+          href='/featured/[featured]/[slug]'
+          key={i}>
           <a>
             <div className="country-item">
               <div className="country-item-wrapper">

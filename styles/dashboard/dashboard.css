@@ -1,9 +1,9 @@
 
 .dashboard-container {
-  margin-left: 5px;
-  width: calc(77.24% - 5px);
-  min-height: 890px;
   float: left;
+  margin-left: 5px;
+  min-height: 890px;
+  width: calc(77.24% - 5px);
 }
 
 @media (max-width: 968px) {
@@ -15,7 +15,7 @@
 @media (max-width: 768px) {
   .dashboard-container {
     margin-left: 0;
-    width: 100%;
     min-height: calc(100vh - 100px);
+    width: 100%;
   }
 }

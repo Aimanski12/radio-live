@@ -10,8 +10,8 @@
 }
 
 .menu-lens {
-  transition: all 0.1s ease-in;
   margin-right: 20px;
+  transition: all 0.1s ease-in;
 }
 
 .menu-burger:active, .menu-lens:active {
@@ -38,17 +38,16 @@
 }
 
 @media (max-width: 768px){
-  /* left btn css */
   .left-menu .close-btn, .right-menu .close-btn {
     align-items: flex-end;
-    width: 100%;
     height: 30px;
+    width: 100%;
   }
   .left-menu .close-btn img, .right-menu .close-btn img{
-    width: 16px;
     height: 16px;
     margin-right: 15px;
     transition: all 0.15s ease-in;
+    width: 16px;
   }
   .left-menu .close-btn img:hover, .right-menu .close-btn img:hover {
     cursor: pointer;
@@ -59,17 +58,17 @@
     transition: all 0.15s ease-in;
   }
   .left-menu {
-    padding: 20px 5px 30px 5px;
-    width: 290px;
+    background: rgba(196, 83, 96, 0.9);
+    display: block;
     height: 95vh;
+    left: -300px;
+    overflow: auto;
+    padding: 20px 5px 30px 5px;
     position: fixed;
     top: 0px;
-    left: -300px;
-    background: rgba(196, 83, 96, 0.9);
-    z-index: 300;
-    overflow: auto;
     transition: all 0.2s ease-in;
-    display: block;
+    width: 290px;
+    z-index: 300;
   }
   .show-leftmenu {
     left: 0;
@@ -79,17 +78,18 @@
 
   /* right btn css */
   .right-menu {
-    width: 290px;
-    height: 95vh;
-    position: fixed;
-    top: 0;
-    right: -300px;
-    padding: 20px 5px 30px 5px;
-    z-index: 300;
-    display: block;
-    overflow: auto;
     background: rgba(196, 83, 96, 0.9);
+    display: block;
+    height: 95vh;
+    overflow: auto;
+    padding: 20px 5px 30px 5px;
+    position: fixed;
+    right: -300px;
+    top: 0;
     transition: all 0.2s ease-in;
+    width: 290px;
+    z-index: 300;
+
   }
   .show-rightmenu {
     right: 0px;

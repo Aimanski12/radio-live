@@ -3,38 +3,24 @@ import axios from 'axios'
 
 const furl = 'https://js-app-tracker.firebaseio.com/nextjs/radio-live'
 
-export function addToSave (_id, folder, data) {
-  const t = getTime('url')
-  const url = `/${t.y}/${t.m}/${t.dy}_${t.de}/${_id}/${folder}`
-  saveDataToFirebase(url, data)
-}
+// set the day to the exact number index of the array
+const dt = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+// set the month to the exact number index of the array
+const mn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 
-export async function saveInitalData(page) {
-  const t = getTime('url')
-  const user = getUser()
-  const userLoc = await getIP()
-  const time = getTime('timeOfVisit')
-  const url = `/${t.y}/${t.m}/${t.dy}_${t.de}`
-  return await saveDataToFirebase(url, {
-    user: user,
-    location: userLoc,
-    initialPage: page,
-    time
-  })
+// check if the session has expired
+export function checkIfExp(time) {
+  let now = getTime('now')
+  let runTime = Math.floor(((now - time) / 1000) / 60)
+  if (runTime >= 60) {
+    return true
+  } else {
+    return false
+  }
 }
 
-export async function saveDataToFirebase (link, data){
-  const url = `${furl}${link}.json`
-  const _id = await axios.post(url, data)
-  return _id.data.name
-}
-
-// function to get user data
-export const getUser = () => {
-  let parser = new UAParser()
-  return parser.getResult()
-}
 
 // get user device data
 export const getIP = async () => {
@@ -70,6 +56,7 @@ export const getIP = async () => {
   return await userIp
 }
 
+
 // function to get time
 export const getTime = (url) => {
   const date = new Date()
@@ -98,24 +85,43 @@ export const getTime = (url) => {
   }
 }
 
+
+// function to get user data
+export const getUser = () => {
+  let parser = new UAParser()
+  return parser.getResult()
+}  
+
+
 // filter number if data is single digit
 const n = (d) => {
   return d < 10 ? `0${d}` : d
 }
 
-// set the month to the exact number index of the array
-const mn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-// set the day to the exact number index of the array
-const dt = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
-// check if the session has expired
-export function checkIfExp(time) {
-  let now = getTime('now')
-  let runTime = Math.floor(((now - time) / 1000) / 60)
-  if (runTime >= 60) {
-    return true
-  } else {
-    return false
-  }
+export async function saveDataToFirebase(link, data) {
+  const url = `${furl}${link}.json`
+  const _id = await axios.post(url, data)
+  return _id.data.name
 }
+
+
+export async function saveInitalData(page) {
+  const t = getTime('url')
+  const user = getUser()
+  const userLoc = await getIP()
+  const time = getTime('timeOfVisit')
+  const url = `/${t.y}/${t.m}/${t.dy}_${t.de}`
+  return await saveDataToFirebase(url, {
+    user: user,
+    location: userLoc,
+    initialPage: page,
+    time
+  })
+}
+
+
+
+
+
+

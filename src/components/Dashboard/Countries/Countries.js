@@ -1,22 +1,25 @@
 import Link from 'next/link'
 import {useRouter} from 'next/router'
+
 import {getCountryCode, getTotal, urlFormatTxt} from '../../../utils/common/helpers'
 
 function Countries(props) {
-  const router = useRouter()
   const country = router.query.countries
+  const router = useRouter()
 
   function setCountries() {
     return props.data.lists.map((list, i) => {
       return (
-        <Link key={i}
+        <Link 
+          as={`/continents/${urlFormatTxt(country)}/${urlFormatTxt(list.name)}`}
           href='/continents/[countries]/[slug]'
-          as={`/continents/${urlFormatTxt(country)}/${urlFormatTxt(list.name)}`}>
+          key={i} >
           <a>
             <div className="country-item">
               <div className="country-item-wrapper">
                 <div className="content-center country-img-wrapper">
-                  <img src={getCountryCode(list.name)} alt=""/>
+                  <img alt=""
+                    src={getCountryCode(list.name)} />
                 </div>
                 <div className="content-center country-name">
                   <h2 className='text-2 font-1'>{list.name}</h2>

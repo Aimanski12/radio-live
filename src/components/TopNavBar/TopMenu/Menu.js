@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {showMenu} from '../../../utils/common/helpers'
 
 function Logo() {
@@ -6,18 +7,22 @@ function Logo() {
      <div className='content-center top-navbar'>
       <div className="content-center menu-burger">
         <img 
+          alt="menu burger icon"
           onClick={()=>showMenu('left')}
-          src="/images/menu-burger.svg" alt="menu burger icon"/>
+          src="/images/menu-burger.svg" />
       </div>
       <div className='small-logo'>
         <a href="/">
-          <img src="/images/small-logo.svg" alt="radio live small icon"/>
+          <img 
+            alt="radio live small icon"
+            src="/images/small-logo.svg" />
         </a>
       </div>
       <div className="menu-lens">
         <img 
+          alt="menu heart icon"
           onClick={()=>showMenu('right')}
-          src="/images/lens.svg" alt="menu heart icon"/>
+          src="/images/lens.svg" />
       </div>
     </div>
   )

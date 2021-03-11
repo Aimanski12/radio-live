@@ -1,18 +1,19 @@
 import React, {useContext} from 'react'
-import {RadioAppData} from '../../utils/contextapi/context'
-import {getTotal,setName, formtNum, urlFormatTxt} from '../../utils/common/helpers'
-import Logo from './components/Logo'
 import Link from 'next/link'
+
+import {RadioAppData} from '../../utils/contextapi/context'
+import {getTotal, formtNum, setName, urlFormatTxt} from '../../utils/common/helpers'
+import Logo from './components/Logo'
 
 function SideBar() {
   const {radiodata} = useContext(RadioAppData)
-  
 
   const continent = radiodata.isSet ? radiodata.data.continents.map((conts, i) => {
     return (
-      <Link key={i}
+      <Link 
+        as={`/continents/${urlFormatTxt(conts.name)}`}
         href='/continents/[countries]' 
-        as={`/continents/${urlFormatTxt(conts.name)}`}>
+        key={i} >
         <a>
           <li className='content-center menu-item text-3'>
             <span className='menu-name font-5'>{conts.name}</span>
@@ -25,14 +26,16 @@ function SideBar() {
 
   const genre = radiodata.isSet ? radiodata.data.genre[0].lists.map((g, i) => {
     return (
-      <Link key={i}
+      <Link 
+        as={`/genre/${urlFormatTxt(g.name)}`}
         href='/genre/[slug]'
-        as={`/genre/${urlFormatTxt(g.name)}`}>
+        key={i} >
         <a>
           <li className='content-center menu-item text-3' key={i}>
             <span className='content-center menu-name font-5'>
-              <img src={`/images/${g.name}.svg`} 
-                alt={`${setName(g.name)} icon`}/>{g.name}</span>
+              <img 
+                alt={`${setName(g.name)} icon`}
+                src={`/images/${g.name}.svg`} />{g.name}</span>
             <span className='menu-station font-8'>{formtNum(g.stationcount)}</span>
           </li>
         </a>

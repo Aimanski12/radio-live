@@ -1,9 +1,9 @@
 
 .sidebar {
-  width: 22.76%;
-  min-height: 890px;
-  float: left;
   background: rgba(196, 83, 96, 0.8);
+  float: left;
+  min-height: 890px;
+  width: 22.76%;
 }
 
 @media (max-width: 968px) {

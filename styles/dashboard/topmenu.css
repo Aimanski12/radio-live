@@ -1,8 +1,8 @@
 
 .top-menu {
-  width: 100%;
-  height: 75px;
   background: linear-gradient(90.04deg, #731330 0.03%, #B74754 99.97%);
+  height: 75px;
+  width: 100%;
 }
 
 .top-menu a{
@@ -10,10 +10,10 @@
 }
 
 .top-menu ul {
-  width: 100%;
-  height: 100%;
   flex-direction: row;
+  height: 100%;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 .top-menu-item {
@@ -21,8 +21,8 @@
 }
 
 .top-menu-item img {
-  width: 38px;
   height: 38px;
+  width: 38px;
 }
 
 .top-menu-item span {
@@ -51,8 +51,8 @@
     height: 70px;
   }
   .top-menu-item img {
-    width: 34px;
     height: 34px;
+    width: 34px;
   }
 }
 
@@ -61,8 +61,8 @@
     height: 60px;
   }
   .top-menu-item img {
-    width: 31px;
     height: 31px;
+    width: 31px;
   }
 }
 

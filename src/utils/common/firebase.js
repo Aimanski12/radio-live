@@ -1,17 +1,16 @@
-import {saveInitalData, getTime, checkIfExp, addToSave} from './firebasehelpers'
+import {saveInitalData, getTime, checkIfExp} from './firebasehelpers'
 
 export async function setFirebase(page) {
   let hasSession;
   const session = sessionStorage.getItem('radio-live')
-  if(session){
-    let _data = JSON.parse(session)
-    if(checkIfExp(_data.expiry)) {
-      saveSession(_data.token)
-      addToSave(_data.token, 'pages', {pages: page})
+  if(session) {
+    const data = JSON.parse(session)
+    if(checkIfExp(data.expiry)) {
+      saveSession(data.radios, data._id)
+      hasSession = true
     } else {
-      addToSave(_data.token, 'pages', {pages: page})
-    } 
-    hasSession = true
+      hasSession = false
+    }
   } else {
     const _id = await saveInitalData(page)
     saveSession([], _id)
@@ -22,9 +21,8 @@ export async function setFirebase(page) {
 
 export function saveSession (radios, _id){
   let data = {
-    token: _id,
+    _id: _id,
     expiry: getTime('now'),
-    web_app: 'radio-live',
     station: radios
   }
   sessionStorage.setItem('radio-live', JSON.stringify(data))

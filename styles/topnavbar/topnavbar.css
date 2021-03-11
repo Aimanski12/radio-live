@@ -4,12 +4,12 @@
 
 @media (max-width: 768px) {
   .top-navbar {
-    height: 60px;
-    width: 100%;
     background: #A00B39;
     display: flex;
+    height: 60px;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
   }
 }
 

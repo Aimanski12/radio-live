@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 import {RadioAppData} from '../../../utils/contextapi/context'
 import {getData} from '../../../utils/apis/api'
-import {checkIfExists, findData, formatText, setName, sliceData, sortByVote} from '../../../utils/common/helpers'
+import {checkIfExists, findData, formatText, sliceData, sortByVote} from '../../../utils/common/helpers'
 
 import Categories from '../../../components/Dashboard/Categories/Categories'
 import Footer from '../../../components/Footer/Footer'
@@ -59,11 +59,11 @@ function CountryRadio() {
           if(!radioCountry.isSet) {
             setCountry({
               isSet: true,
-              page: country,
-              textHeader: formatText(country),
               lists: stations,
+              page: country,
+              radios: sliceData(1, stations),
+              textHeader: formatText(country),
               totalpages: Math.ceil(stations.length / 21),
-              radios: sliceData(1, stations)
             })
           }
         })()
@@ -98,12 +98,12 @@ function CountryRadio() {
             <TopMenu />
             { radioCountry.isSet ? 
               <Radios 
-                likeBtn='like'
-                textHeader={radioCountry.textHeader}
                 click={(val)=>getNewData(val)}
+                likeBtn='like'
                 radios={radioCountry.radios}
+                textHeader={radioCountry.textHeader}
                 total={radioCountry.lists.length}
-                totalpages={radioCountry.totalpages} /> : null }
+                totalpages={radioCountry.totalpages}/> : null }
             { radioCountry.isSet ? <Categories /> : null }
           </div>
         </div>

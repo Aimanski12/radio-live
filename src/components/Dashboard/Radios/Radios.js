@@ -1,15 +1,16 @@
 import React from 'react'
-import Pagination from '../../Pagination/Pagination'
+
 import {formtNum} from '../../../utils/common/helpers'
+import Pagination from '../../Pagination/Pagination'
 import Radio from './components/Radio'
 
 function Radios(props) {
 
   const stations = props.radios.map((radio, i) =>{
     return ( <Radio 
+              likeBtn={props.likeBtn}
               removeStn={props.removeStn}
-              station={radio} key={i}
-              likeBtn={props.likeBtn}/> )
+              station={radio} key={i} /> )
   })
 
   return (
