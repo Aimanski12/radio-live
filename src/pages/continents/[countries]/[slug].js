@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 import {RadioAppData} from '../../../utils/contextapi/context'
 import {getData} from '../../../utils/apis/api'
-import {checkIfExists, findData, setName, sliceData, sortByVote} from '../../../utils/common/helpers'
+import {checkIfExists, findData, formatText, setName, sliceData, sortByVote} from '../../../utils/common/helpers'
 
 import Categories from '../../../components/Dashboard/Categories/Categories'
 import Footer from '../../../components/Footer/Footer'
@@ -25,7 +25,6 @@ function CountryRadio() {
     textHeader: '',
     totalpages: 0,
   })
-  
 
   useEffect(() => {
     // preset the data if empty
@@ -61,7 +60,7 @@ function CountryRadio() {
             setCountry({
               isSet: true,
               page: country,
-              textHeader: setName(country),
+              textHeader: formatText(country),
               lists: stations,
               totalpages: Math.ceil(stations.length / 21),
               radios: sliceData(1, stations)

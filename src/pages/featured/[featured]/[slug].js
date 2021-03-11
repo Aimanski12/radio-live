@@ -3,7 +3,7 @@ import {useRouter} from 'next/router'
 import Head from 'next/head'
 
 import {RadioAppData} from '../../../utils/contextapi/context'
-import {checkIfExists, findData, sortByVote, setName, sliceData} from '../../../utils/common/helpers'
+import {checkIfExists, findData, formatText, sortByVote, setName, sliceData} from '../../../utils/common/helpers'
 import {getData} from '../../../utils/apis/api'
 
 import Categories from '../../../components/Dashboard/Categories/Categories'
@@ -55,15 +55,13 @@ function FeaturedRadio() {
       const isValidSelection = checkIfExists(selection, featuredLists.lists)
       if (isValidSelection) {
         (async function () {
-          // format text to a non hyphenated text
-          const a = selection.split('-').join(' ')
           // query data and sort data according to its popularity
-          let stations = sortByVote(await getData('genre', a))
+          let stations = sortByVote(await getData('genre', selection))
           if (!featuredradio.isSet) {
             setFeaturedGenre({
               isSet: true,
               page: selection,
-              textHeader: setName(selection),
+              textHeader: formatText(selection),
               lists: stations,
               totalpages: Math.ceil(stations.length / 21),
               radios: sliceData(1, stations)

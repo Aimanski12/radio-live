@@ -85,6 +85,11 @@ export const setName = (name) => {
   return b.join(' ')
 }
 
+export const formatText = (text) => {
+  let a = text.split('-').map(b => setName(b))
+  return a.join(' ')
+  
+}
 
 // function used to check is the url query parameter
 // is in the listed data
@@ -176,7 +181,7 @@ export async function saveRadioToSession(station, page) {
   const data = sessionStorage.getItem('radio-live')
 
   if(!data) { 
-    const _id = await saveInitalData(page)
+    // const _id = await saveInitalData(page)
     saveSession([{station}], _id)    
   } else {
     let oldData = JSON.parse(data)

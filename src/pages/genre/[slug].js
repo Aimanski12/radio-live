@@ -1,83 +1,74 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
-import {RadioAppData} from '../../utils/contextapi/context'
-import Meta from '../../components/Meta/Meta'
 import Head from 'next/head'
-import TopNavBar from '../../components/TopNavBar/TopNavBar'
+
+import {checkIfExists, setName, sliceData,sortByVote, } from '../../utils/common/helpers'
+import {getData} from '../../utils/apis/api'
+import {RadioAppData} from '../../utils/contextapi/context'
+
+import Categories from '../../components/Dashboard/Categories/Categories'
+import Footer from '../../components/Footer/Footer'
+import Meta from '../../components/Meta/Meta'
+import Radios from '../../components/Dashboard/Radios/Radios'
 import SideBar from '../../components/SideNavbar/SideBar'
 import TopMenu from '../../components/Dashboard/TopMenu/TopMenu'
-import Footer from '../../components/Footer/Footer'
-import Categories from '../../components/Dashboard/Categories/Categories'
-import Radios from '../../components/Dashboard/Radios/Radios'
-import Intro from '../../components/Intro/Intro'
-import {checkIfExists, sortByVote, setName, sliceData} from '../../utils/common/helpers'
-import {getData} from '../../utils/apis/api'
-import {setFirebase} from '../../utils/common/firebase'
+import TopNavBar from '../../components/TopNavBar/TopNavBar'
 
 function Genre() {
-  const [hasSession, setSessionData] = useState({
-    isSet: false,
-    session: false
-  })
   const router = useRouter()
+  const genre = router.query.slug
   const {radiodata, setradiodata} = useContext(RadioAppData)
-  const [radiogenre, setGenre] = useState({
+
+  const [genreStation, setGenreStations] = useState({
     isSet: false,
+    lists: {},
     page: '',
+    radios: {},
     textHeader: '',
-    lists: {}, 
     totalpages: 0,
-    radios: {}
   })
 
-  
   useEffect(() => {
-    const a = window.location.pathname.split('/')[2].split('-').join(' ')
-    
+    // preset the data if empty
     if (!radiodata.isSet) {
       (async function () {
         let data = await getData('home')
         setradiodata(data)
       })()
     }
-
-    // check if the query matched the continent list
-    if(radiodata.isSet){
-      if(!checkIfExists(a, radiodata.data.genre[0].lists)) {
-        router.replace('/404', window.location.pathname)
-      }
-    }
-    
-    // get the radio station and put to the state
-    (async function () {
-      
-      let genre = sortByVote(await getData('genre', a))
-      if(radiogenre.page !== a){
-        setGenre({
-          isSet: true,
-          page: a,
-          textHeader: setName(a),
-          lists: genre,
-            totalpages: Math.ceil(genre.length / 21),
-            radios: sliceData(1, genre)
-          })
-          
-        // check the session to set the animation
-        if(!hasSession.isSet){
-          if(!hasSession){
-            setSessionData({ isSet: true, session: true })
-          } else {
-            setSessionData({ isSet: true})
-          }
-        }
-      }
-    })()
   }, [])
 
+  const setStation = (stations) => {
+    setGenreStations({
+      isSet: true,
+      lists: stations,
+      page: genre,
+      radios: sliceData(1, stations),
+      totalpages: Math.ceil(stations.length / 21),
+      textHeader: setName(genre),
+    })
+  }
+
+  if (radiodata.isSet) {
+    const isValid = checkIfExists(genre, radiodata.data.genre[0].lists)
+
+    if (isValid) {
+      (async function () {
+        let stations = sortByVote(await getData('genre', genre))
+        if (!genreStation.isSet) {
+          setStation(stations)
+        } else if (genreStation.page.toLocaleLowerCase() !== genre){
+          setStation(stations)
+        }
+      })()
+    } else router.replace('/404', window.location.pathname)
+  }
+
+  
   function getNewData(val) {
-    const newSet = sliceData(val, radiogenre.lists)
-    setGenre({
-      ...radiogenre,
+    const newSet = sliceData(val, genreStation.lists)
+    setGenreStations({
+      ...genreStation,
       radios: newSet
     })
   }
@@ -85,35 +76,30 @@ function Genre() {
   return (
     <div className='content-center main-container'>
       <Head>
-        <title>{`Radio Live | ${radiogenre.textHeader} Genre`}</title>
+        <title>{`Radio Live | Genre`}</title>
         <link rel="icon" href="/images/logo.ico" />
         <Meta />
       </Head>
-
-      { hasSession.isSet ? (
-        <>
-          { hasSession.session ? <Intro/> : null }
-        <main className='content-center main-wrapper'>
-          <TopNavBar />
-          <div className="content-wrapper">
-            <SideBar/>
-            
-            <div className='dashboard-container'>
-              <TopMenu />
-              { radiogenre.isSet ? 
-                <Radios 
-                  likeBtn='like'
-                  textHeader={radiogenre.textHeader}
-                  click={(val)=>getNewData(val)}
-                  radios={radiogenre.radios}
-                  total={radiogenre.lists.length}
-                  totalpages={radiogenre.totalpages} /> : null }
-              { radiogenre.isSet ? <Categories /> : null }
-            </div>
+      <main className='content-center main-wrapper'>
+        <TopNavBar />
+        <div className="content-wrapper">
+          <SideBar/>
+          
+          <div className='dashboard-container'>
+            <TopMenu />
+            { genreStation.isSet ? 
+              <Radios 
+                likeBtn='like'
+                textHeader={genreStation.textHeader}
+                click={(val)=>getNewData(val)}
+                radios={genreStation.radios}
+                total={genreStation.lists.length}
+                totalpages={genreStation.totalpages} /> : null }
+            { genreStation.isSet ? <Categories /> : null }
           </div>
-          <Footer />
-        </main> </> ) : null }
-       
+        </div>
+        <Footer />
+      </main> 
     </div>
   )
 }

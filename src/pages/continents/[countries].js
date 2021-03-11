@@ -43,7 +43,7 @@ function Country() {
         return continent.name.toLowerCase() === filteredQuery
       })
       // assign selected to the selected continent
-      selected = lists
+      selected = lists[0]
 
       // redirect page if query value is invalid
     } else router.replace('/404', window.location.pathname)
@@ -63,7 +63,7 @@ function Country() {
             
             <div className='dashboard-container'>
               <TopMenu />
-              { selected && <Countries data={selected[0]}/> }
+              { selected && <Countries data={selected}/> }
               <Categories />
             </div>
           </div>

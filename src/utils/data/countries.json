@@ -6,7 +6,7 @@
     },
     {
       "name": "Asia",
-      "lists": ["Afghanistan", "Armenia", "Azerbaijan", "Bangladesh", "Cambodia", "China", "Cyprus", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan", "Jordan", "Kazakhstan", "Lebanon", "Malaysia", "Mongolia", "Myanmar", "Nepal", "Pakistan", "Palestine", "Philippines", "Qatar", "Saudi Arabia", "Singapore", "South Korea",  "Sri Lanka", "Syria", "Taiwan", "Thailand", "Turkey", "United Arab Emirates", "Uzbekistan", "Vietnam" ]
+      "lists": ["Afghanistan", "Armenia", "Azerbaijan", "Bangladesh", "Cambodia", "China", "Cyprus", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan", "Jordan", "Kazakhstan", "Lebanon", "Malaysia", "Mongolia", "Myanmar", "Nepal", "Pakistan", "Palestine", "The Philippines", "Qatar", "Saudi Arabia", "Singapore", "South Korea",  "Sri Lanka", "Syria", "Taiwan", "Thailand", "Turkey", "United Arab Emirates", "Uzbekistan", "Vietnam" ]
     },
     {
       "name": "Australia",
@@ -14,11 +14,11 @@
     },
     {
       "name": "Europe",
-      "lists": ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland", "Italy", "Kazakhstan", "Latvia", "Lithuania", "Luxembourg", "Malta", "Moldova", "Netherlands", "Norway", "Poland", "Portugal", "Romania", "Russia", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom", "Vatican City State" ]
+      "lists": ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland", "Italy", "Kazakhstan", "Latvia", "Lithuania", "Luxembourg", "Malta", "Moldova", "Netherlands", "Norway", "Poland", "Portugal", "Romania", "The Russian Federation", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom", "Vatican City State" ]
     },
     {
       "name": "North America",
-      "lists": ["Antigua & Barbuda", "Bahamas", "Barbados", "Canada", "Costa Rica", "Cuba", "Dominican Republic", "El Salvador", "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Saint Lucia", "Trinidad and Tobago", "United States of America" ]
+      "lists": ["Antigua & Barbuda", "Bahamas", "Barbados", "Canada", "Costa Rica", "Cuba", "Dominican Republic", "El Salvador", "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Saint Lucia", "Trinidad and Tobago", "The United States Of America" ]
     },
     {
       "name": "South America",

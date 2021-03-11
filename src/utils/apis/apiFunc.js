@@ -10,10 +10,6 @@ export const home = async () => {
   const contData = await fetchData('/countries')
   const catData = await fetchData('/tags')
   let continents = removeEmpty(sortData(listOfCont.continents, contData, true))
-
-  
-
-
   let categories = sortData(listOfCat.categories, catData, false)
   let topMenu = sortData(top.topMenu, catData, false)
   let genre = sortData(genList.genlist, catData, false)

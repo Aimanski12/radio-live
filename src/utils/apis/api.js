@@ -7,9 +7,9 @@ export const getData = async (route, params) => {
   switch(route) {
     case 'home' : data = await home();
       break
-    case 'genre' : data = await getByGenre(params);
+    case 'genre' : data = await getByGenre(params.split('-').join(' '));
       break
-    case 'country': data = await getByCountry(params);
+    case 'country': data = await getByCountry(params.split('-').join(' '));
       break
     case 'name': data = await getStation(params);
       break

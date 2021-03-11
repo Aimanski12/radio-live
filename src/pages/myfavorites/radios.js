@@ -14,6 +14,9 @@ import {setFirebase} from '../../utils/common/firebase'
 import {getData} from '../../utils/apis/api'
 
 function MyFavorites() {
+  const {radiodata, setradiodata} = useContext(RadioAppData)
+
+
   const [hasSession, setSessionData] = useState({
     isSet: false,
     session: false
@@ -22,42 +25,45 @@ function MyFavorites() {
     isSet: false,
     radios: {}
   })
-  const {radiodata, setradiodata} = useContext(RadioAppData)
   
   useEffect(() => {
-    
     if (!radiodata.isSet) {
       (async function () {
         let data = await getData('home')
         setradiodata(data)
       })()
     }
-
-    if(!hasSession.isSet){
-      (async function(){
-        const hasSession = await setFirebase('Favorites')
-        if(!hasSession){
-          setSessionData({ isSet: true, session: true })
-        } else {
-          setSessionData({ isSet: true})
-        }
-        
-
-        const sessiondata = sessionStorage.getItem('radio-live')
-        if(!data.isSet){
-          if(sessiondata === null){
-            setData({ ...data, radios: [], selRadio: [], isSet: true
-            })
-          } else {
-            let storedRadios = JSON.parse(sessiondata)
-            setData({ isSet: true, radios: storedRadios,
-              selRadio: sliceData(1, storedRadios.station) })
-          }
-        }
-
-      })()
-    }
   }, [])
+    
+  const sessionData = sessionStorage.getItem('radio-live')
+  // console.log(sessionData)
+
+  // if(!hasSession.isSet){
+  //   (async function(){
+  //     const hasSession = await setFirebase('Favorites')
+  //     if(!hasSession){
+  //       setSessionData({ isSet: true, session: true })
+  //     } else {
+  //       setSessionData({ isSet: true})
+  //     }
+      
+
+  //     const sessiondata = sessionStorage.getItem('radio-live')
+  //     if(!data.isSet){
+  //       if(sessiondata === null){
+  //         setData({ ...data, radios: [], selRadio: [], isSet: true
+  //         })
+  //       } else {
+  //         let storedRadios = JSON.parse(sessiondata)
+  //         setData({ isSet: true, radios: storedRadios,
+  //           selRadio: sliceData(1, storedRadios.station) })
+  //       }
+  //     }
+
+  //   })()
+  // }
+
+
 
   function getNewData(val) {
     const newSet = sliceData(val, data.radios)
@@ -84,16 +90,13 @@ function MyFavorites() {
         <Meta />
       </Head>
 
-      { hasSession.isSet ? (
-      <>
-        { hasSession.session ? <Intro/> : null }
         <main className='content-center main-wrapper'>
           <TopNavBar />
           <div className="content-wrapper">
             <SideBar/>
             <div className='dashboard-container'>
               <TopMenu />
-              { data.isSet ? 
+              {/* { data.isSet ? 
                 <Radios 
                   likeBtn='delete'
                   removeStn={(stn) => removeStation(stn)}
@@ -101,12 +104,12 @@ function MyFavorites() {
                   radios={data.selRadio}
                   total={data.radios.station.length}
                   click={(val)=>getNewData(val)}
-                  totalpages={data.data / 21} /> : null }
+                  totalpages={data.data / 21} /> : null } */}
               <Categories />
             </div>
           </div>
           <Footer />
-        </main> </> ) : null }
+        </main>
     </div>
   )
 }

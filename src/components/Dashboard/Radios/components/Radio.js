@@ -30,6 +30,7 @@ function Radio(props) {
             {
               props.likeBtn === 'like' ? 
                 <img 
+                  // onClick={()=> console.log(props.station)}
                   onClick={()=> saveRadioToSession(props.station)}
                   src="/images/Like.svg" 
                   alt="heart-like icon"/> : 

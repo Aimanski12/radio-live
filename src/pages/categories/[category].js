@@ -1,98 +1,72 @@
-import React, {useContext, useEffect,useState} from 'react'
-import Meta from '../../components/Meta/Meta'
+import React, {useContext, useEffect} from 'react'
 import {useRouter} from 'next/router'
-import {RadioAppData} from '../../utils/contextapi/context'
 import Head from 'next/head'
-import TopNavBar from '../../components/TopNavBar/TopNavBar'
-import SideBar from '../../components/SideNavbar/SideBar'
-import TopMenu from '../../components/Dashboard/TopMenu/TopMenu'
-import Footer from '../../components/Footer/Footer'
-import Categories from '../../components/Dashboard/Categories/Categories'
-import Subcategories from '../../components/Dashboard/Subcategories/Subcategories'
-import {checkIfExists, findData} from '../../utils/common/helpers'
-import {setFirebase} from '../../utils/common/firebase'
-import Intro from '../../components/Intro/Intro'
+
+import {RadioAppData} from '../../utils/contextapi/context'
+import {checkIfExists} from '../../utils/common/helpers'
 import {getData} from '../../utils/apis/api'
 
+import Categories from '../../components/Dashboard/Categories/Categories'
+import Footer from '../../components/Footer/Footer'
+import Meta from '../../components/Meta/Meta'
+import SideBar from '../../components/SideNavbar/SideBar'
+import Subcategories from '../../components/Dashboard/Subcategories/Subcategories'
+import TopMenu from '../../components/Dashboard/TopMenu/TopMenu'
+import TopNavBar from '../../components/TopNavBar/TopNavBar'
+
 function RadioCategory() {
+  let selected;
   const router = useRouter()
-  const [data, setData] = useState({
-    isSet: false,
-    categories: '',
-    data: {}
-  })
-  
-  const [hasSession, setSessionData] = useState({
-    isSet: false,
-    session: false
-  })
+  // assign query value
+  const query = router.query.category
   const {radiodata, setradiodata} = useContext(RadioAppData)
-  
+
   useEffect(() => {
-    const a = window.location.pathname.split('/')[2].split('-').join(' ')
-    
+    // preset data if context data is empty
     if (!radiodata.isSet) {
       (async function () {
         let data = await getData('home')
         setradiodata(data)
       })()
     }
-
-    // check if the query matched the continent list
-    if(radiodata.isSet){
-      if(!checkIfExists(a, radiodata.data.categories)) {
-        router.replace('/404', window.location.pathname)
-      }
-    }
-
-    if(radiodata.data.continents !== undefined) {
-      const selData = findData(a, radiodata.data.categories)
-      if(a !== data.categories) {
-        setData({
-          isSet: true,
-          data: selData,
-          categories: a
-        })
-
-        // check if there is a session to set the intro
-        if(!hasSession.isSet){
-          (async function(){
-            const hasSession = await setFirebase(`Categories ${a}`)
-            if(!hasSession){
-              setSessionData({ isSet: true, session: true })
-            } else {
-              setSessionData({ isSet: true})
-            }
-          })()
-        }
-      }
-    }
   }, [])
 
+  if (radiodata.isSet) {
+    // check if the query value is valid
+    const queryExists = checkIfExists(query, radiodata.data.categories)
 
+    if (queryExists) {
+      const filteredQuery = query.split('-').join(' ')
+      const lists = radiodata.data.categories.filter(continent => {
+        return continent.name.toLowerCase() === filteredQuery
+      })
+      // assign selected to the selected continent
+      selected = lists[0]
+
+      // redirect page if query value is invalid
+    } else router.replace('/404', window.location.pathname)
+  }
 
   return (
     <div className='content-center main-container'>
       <Head>
-        <title>Radio Live | {data.data.name}</title>
+        <title>Radio Live | Category</title>
         <link rel="icon" href="/images/logo.ico" />
         <Meta />
       </Head>
-      { hasSession.isSet ? (
-      <>
-        { hasSession.session ? <Intro/> : null }
-        <main className='content-center main-wrapper'>
-          <TopNavBar />
-          <div className="content-wrapper">
-            <SideBar/>
-            <div className='dashboard-container'>
-              <TopMenu />
-              { data.isSet ? <Subcategories data={data.data}/> : null }
-              <Categories />
-            </div>
+      
+      <main className='content-center main-wrapper'>
+        <TopNavBar />
+        <div className="content-wrapper">
+          <SideBar/>
+          <div className='dashboard-container'>
+            <TopMenu />
+            { selected && <Subcategories data={selected}/>}
+            <Categories />
           </div>
-          <Footer />
-        </main> </> ) : null }
+        </div>
+        <Footer />
+      </main>
     </div>
   )
 }
